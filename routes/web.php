@@ -17,8 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//manage
-
-Route::get('/manage', function () {
-    return view('../manage/manage');
-});
+Route::get('/', 'PageController@home');
+Route::get('home', 'PageController@home');
+Route::get('about', 'PageController@about');
+Route::get('contact', 'PageController@contact');
