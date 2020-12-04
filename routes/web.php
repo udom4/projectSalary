@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//manage
+
+Route::get('/manage', function () {
+    return view('../manage/manage');
+});
