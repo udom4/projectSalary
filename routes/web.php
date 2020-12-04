@@ -19,5 +19,5 @@ Route::get('/', function () {
 
 Route::get('/', 'App\Http\Controllers\WebController@home');
 Route::get('home', 'WebController@home');
-Route::get('about', 'WebController@about');
+Route::get('manage', 'App\Http\Controllers\WebController@manage');
 Route::get('contact', 'WebController@contact');

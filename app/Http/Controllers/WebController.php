@@ -10,9 +10,9 @@ class WebController extends Controller
     {
         return view('home');
     }
-    public function about()
+    public function manage()
     {
-        return view('about');
+        return view('manage/manage');
     }
     public function contact()
     {
