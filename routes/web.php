@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'PageController@home');
-Route::get('home', 'PageController@home');
-Route::get('about', 'PageController@about');
-Route::get('contact', 'PageController@contact');
+Route::get('/', 'App\Http\Controllers\WebController@home');
+Route::get('home', 'WebController@home');
+Route::get('about', 'WebController@about');
+Route::get('contact', 'WebController@contact');
