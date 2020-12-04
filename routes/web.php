@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'App\Http\Controllers\WebController@home');
-Route::get('home', 'WebController@home');
+Route::get('home', 'App\Http\Controllers\WebController@home');
 Route::get('manage', 'App\Http\Controllers\WebController@manage');
+Route::get('working', 'App\Http\Controllers\WebController@working');
+Route::get('report', 'App\Http\Controllers\WebController@report');
 Route::get('contact', 'WebController@contact');

@@ -18,4 +18,10 @@ class WebController extends Controller
     {
         return view('contact');
     }
+    public function working() {
+        return view('working/working');
+    }
+    public function report() {
+        return view('report/report');
+    }
 }

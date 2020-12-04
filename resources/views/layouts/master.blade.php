@@ -33,19 +33,19 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="/manage">
+              <a class="nav-link" href="/manage">
                 <i class="ni ni-tv-2 text-orange"></i>
                 <span class="nav-link-text">จัดการข้อมูลพื้นฐาน</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/icons.html">
+              <a class="nav-link" href="/working">
                 <i class="ni ni-satisfied text-orange"></i>
                 <span class="nav-link-text">ข้อมูลการทำงาน</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/icons.html">
+              <a class="nav-link" href="/report">
                 <i class="ni ni-planet text-orange"></i>
                 <span class="nav-link-text">รายงาน</span>
               </a>
