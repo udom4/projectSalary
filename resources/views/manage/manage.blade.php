@@ -2,7 +2,7 @@
 @section('title', 'จัดการข้อมูลพื้นฐาน')
 @section('sidebar')
 @endsection
-@section('content')
+@section('main-content')
 <div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">
