@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'จัดการข้อมูลพื้นฐาน')
+@section('title', 'จัดการข้อมูลพนักงาน')
 @section('sidebar')
 @endsection
 @section('content')
