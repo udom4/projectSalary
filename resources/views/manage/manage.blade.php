@@ -25,12 +25,14 @@
     </div>
   </button>
   </a>
+  <a href="/department">
   <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="จัดการข้อมูลแผนก">
     <div>
       <i class="ni ni-collection"></i>
       <span>จัดการข้อมูลแผนก</span>
     </div>
   </button>
+  </a>
 </div>
 
 @endsection

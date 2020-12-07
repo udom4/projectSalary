@@ -26,3 +26,4 @@ Route::get('working', 'App\Http\Controllers\WebController@working');
 Route::get('report', 'App\Http\Controllers\WebController@report');
 Route::get('contact', 'WebController@contact');
 Route::get('employee','App\Http\Controllers\employeeController@info');
+Route::get('department','App\Http\Controllers\departmentController@info');
