@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,4 @@ Route::get('manage', 'App\Http\Controllers\WebController@manage');
 Route::get('working', 'App\Http\Controllers\WebController@working');
 Route::get('report', 'App\Http\Controllers\WebController@report');
 Route::get('contact', 'WebController@contact');
+Route::get('employees', [EmployeeController::class,'show']);

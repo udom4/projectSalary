@@ -20,7 +20,7 @@
   <button type="button" class="btn-icon-clipboard" data-clipboard-text="single-02" title="จัดข้อมูลพนักงาน">
     <div>
       <i class="ni ni-single-02"></i>
-      <span>จัดการข้อมูลพนักงาน</span>
+      <span><a href="/employees">จัดการข้อมูลพนักงาน</a></span>
     </div>
   </button>
   <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="จัดการข้อมูลแผนก">
