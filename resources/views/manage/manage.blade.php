@@ -17,7 +17,7 @@
             </div>
 </div>
 <div class="col-lg-3 col-md-6">
-  <button type="button" class="btn-icon-clipboard" data-clipboard-text="single-02" title="จัดข้อมูลพนักงาน">
+  <button type="button" class="btn-icon-clipboard" data-clipboard-text="single-02" title="จัดข้อมูลพนักงาน" href="/employee">
     <div>
       <i class="ni ni-single-02"></i>
       <span>จัดการข้อมูลพนักงาน</span>
