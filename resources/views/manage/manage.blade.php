@@ -17,12 +17,14 @@
             </div>
 </div>
 <div class="col-lg-3 col-md-6">
-  <button type="button" class="btn-icon-clipboard" data-clipboard-text="single-02" title="จัดข้อมูลพนักงาน" href="/employee">
+<a href="/employee">
+  <button type="button" class="btn-icon-clipboard" data-clipboard-text="single-02" title="จัดข้อมูลพนักงาน" >
     <div>
       <i class="ni ni-single-02"></i>
-      <span><a href="/employees">จัดการข้อมูลพนักงาน</a></span>
+      <span>จัดการข้อมูลพนักงาน</span>
     </div>
   </button>
+  </a>
   <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="จัดการข้อมูลแผนก">
     <div>
       <i class="ni ni-collection"></i>

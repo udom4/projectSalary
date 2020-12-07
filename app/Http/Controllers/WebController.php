@@ -26,4 +26,5 @@ class WebController extends Controller
     public function report() {
         return view('report/report');
     }
+    
 }

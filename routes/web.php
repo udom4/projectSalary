@@ -25,4 +25,4 @@ Route::get('manage', 'App\Http\Controllers\WebController@manage');
 Route::get('working', 'App\Http\Controllers\WebController@working');
 Route::get('report', 'App\Http\Controllers\WebController@report');
 Route::get('contact', 'WebController@contact');
-Route::get('employees', [EmployeeController::class,'show']);
+Route::get('employee','App\Http\Controllers\employeeController@info');
