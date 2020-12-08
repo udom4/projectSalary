@@ -19,4 +19,22 @@ class DepartmentController extends Controller
         return view('department.department',compact('dept'));
 
     }
+
+    public function create() {
+        $dept = DB::table('department')
+        ->select('*')
+        ->get();
+
+        return view('department.create',compact('dept'));
+    }
+
+    public function store(Request $request)
+    {
+        $dept = new department;
+        $dept->dept_name = $request->dept_name;
+        $dept->save();
+
+        return redirect()->route('department.department')->with('status', 'บันทึกข้อมูลสำเร็จ');
+    }
+  
 }

@@ -32,10 +32,6 @@
                     <th scope="col" class="sort" data-sort="name">Name</th>
                     <th scope="col" class="sort" data-sort="name">Nickname</th>
                     <th scope="col" class="sort" data-sort="name">Department</th>
-                    <th scope="col" class="sort" data-sort="name">Team</th>
-                    <th scope="col" class="sort" data-sort="name">Position</th>
-                    <th scope="col" class="sort" data-sort="name">BankId</th>
-                    <th scope="col" class="sort" data-sort="name">BankName</th>
                     <th scope="col" class="sort" data-sort="name">Tel.Number</th>
                     <th scope="col" class="sort" data-sort="name">Salary</th>
                     <th scope="col" class="sort" data-sort="name">Other</th>
@@ -54,10 +50,6 @@
                     <td class="budget">{{$row->emp_en_name}} &nbsp {{$row->emp_en_surname}}</td>
                     <td class="budget">{{$row->emp_nickname}}</td>
                     <td class="budget">{{$row->de_name}}</td>
-                    <td class="budget">{{$row->team_name}}</td>
-                    <td class="budget">{{$row->pos_name}}</td>
-                    <td class="budget">{{$row->emp_bankID}}</td>
-                    <td class="budget">{{$row->bank_name}}</td>
                     <td class="budget">{{$row->emp_phone}}</td>
                     <td class="budget">{{$row->salary}}</td>
                     <td class="budget">{{$row->other}}</td>

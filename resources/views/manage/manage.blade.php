@@ -25,7 +25,7 @@
     </div>
   </button>
   </a>
-  <a href="/department">
+  <a href="{{ route('department.department') }}">
   <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="จัดการข้อมูลแผนก">
     <div>
       <i class="ni ni-collection"></i>

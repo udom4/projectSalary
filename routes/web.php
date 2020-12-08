@@ -26,4 +26,16 @@ Route::get('working', 'App\Http\Controllers\WebController@working');
 Route::get('report', 'App\Http\Controllers\WebController@report');
 Route::get('contact', 'WebController@contact');
 Route::get('employee','App\Http\Controllers\employeeController@info');
-Route::get('department','App\Http\Controllers\departmentController@info');
+
+
+//department
+
+Route::get('/department', 'App\Http\Controllers\departmentController@info' ,function () {
+    return view('department.department');
+})->name('department.department');
+Route::get('/create', 'App\Http\Controllers\departmentController@create' ,function () {
+    return view('department.create');
+})->name('department.create');
+Route::post('/department/store', 'App\Http\Controllers\departmentController@store' ,function () {
+    return view('welcome');
+})->name('department.store');
