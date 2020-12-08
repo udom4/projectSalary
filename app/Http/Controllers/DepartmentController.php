@@ -30,11 +30,43 @@ class DepartmentController extends Controller
 
     public function store(Request $request)
     {
+
+
+        //validate data
+        $rules = [
+            'dept_name' => 'required',
+        ];
+
+        $request->validate($rules);
+
+
         $dept = new department;
         $dept->dept_name = $request->dept_name;
         $dept->save();
 
         return redirect()->route('department.department')->with('status', 'บันทึกข้อมูลสำเร็จ');
     }
+
+    public function edit($id)
+    {
+        $dept = department::find($id);
+        return view('department.edit')
+            ->with('dept',$dept);
+    }
   
+    public function update(Request $request, $id)
+    {
+        //validate data
+        $rules = [
+            'dept_name' => 'required',
+        ];
+
+        $request->validate($rules);
+
+        $dept = department::find($id);
+        $dept->update($request->all());
+
+        $dept->save();
+        return redirect()->route('department.department')->with('status', 'ข้อมูลสำเร็จ');
+    }
 }

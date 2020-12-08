@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'จัดการข้อมูลแผนก')
+@section('title', 'แก้ไขข้อมูลแผนก')
 @section('sidebar')
 @endsection
 @section('content')
@@ -24,13 +24,13 @@
  <div class="card-header border-0">
  <div class="row align-items-center">
  <div class="col">
- <h3 class="mb-0">เพิ่มข้อมูลแผนก</h3>
+ <h3 class="mb-0">แก้ไขข้อมูลแผนก  {{$dept->dept_name}}</h3>
  </div>
  </div>
  </div>
 
- <div class="card-body pt-0" style="min-height: 50vh">
- {!! Form::open(['url' => route('department.store') ,'file'=>true]) !!}
+ 
+ {!! Form::model($dept, ['url' => route('department.update', $dept->id) ,'method'=> 'post']) !!}
  <div class="row">
  <div class="col">
  <div class="form-group">

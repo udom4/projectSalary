@@ -65,10 +65,20 @@
                 @foreach ($dept as $row)
                   <tr>
                     <th scope="row">
-                        <a href="#">
+                        <a href="">
                         {{$row->dept_name}}
                         </a>
                     </th>
+                    <td>
+                      <form class="edit" action=" {{ route('department.edit',$row->id) }}" method="POST">
+                      {{ csrf_field() }}
+                      <a href="{{ route('department.edit',$row->id) }} " class="btn btn/sm btn/outline">
+                         <i class="fa fa-edit"></i>
+                         </a>
+                      </form>
+                        
+                    </td>
+                    
                     <td class="text-right">
                       <div class="dropdown">
                         <a class="btn btn-sm btn-icon-only text-light"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

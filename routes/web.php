@@ -39,3 +39,18 @@ Route::get('/create', 'App\Http\Controllers\departmentController@create' ,functi
 Route::post('/department/store', 'App\Http\Controllers\departmentController@store' ,function () {
     return view('welcome');
 })->name('department.store');
+Route::get('/edit{id}', 'App\Http\Controllers\departmentController@edit' ,function () {
+    return view('department.edit');
+})->name('department.edit');
+Route::post('/department/update{id}', 'App\Http\Controllers\departmentController@update' ,function () {
+    return view('welcome');
+})->name('department.update');
+
+
+//team
+
+
+
+
+
+Route::get('/log_action/{id}/{table}','LogController@index');
