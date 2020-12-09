@@ -19,13 +19,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'App\Http\Controllers\WebController@home');
-Route::get('home', 'App\Http\Controllers\WebController@home');
-Route::get('manage', 'App\Http\Controllers\WebController@manage');
-Route::get('working', 'App\Http\Controllers\WebController@working');
-Route::get('report', 'App\Http\Controllers\WebController@report');
-Route::get('contact', 'WebController@contact');
-Route::get('employee','App\Http\Controllers\employeeController@info');
+//home 
+Route::get('/', 'App\Http\Controllers\WebController@home', function(){
+    return view('home');
+})->name('home');
+
+//manage
+Route::get('manage', 'App\Http\Controllers\WebController@manage', function(){
+    return view('manage.manage');
+})->name('manage');
+
+//working
+Route::get('working', 'App\Http\Controllers\WebController@working', function(){
+    return view('working.working');
+})->name('working');
+
+//report
+Route::get('report', 'App\Http\Controllers\WebController@report', function(){
+    return view('report.report');
+})->name('report');
 
 
 //department
@@ -57,3 +69,6 @@ Route::get('/deleteDepartment{id}', 'App\Http\Controllers\departmentController@d
 
 Route::get('/log_action/{id}/{table}','LogController@index');
 Route::get('/delete_worker/{id}','WorkerController@destroy');
+
+Route::get('contact', 'WebController@contact');
+Route::get('employee','App\Http\Controllers\employeeController@info');
