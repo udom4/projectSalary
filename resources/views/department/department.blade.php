@@ -75,7 +75,7 @@
                       <a href="{{ route('department.edit',$row->id) }} " class="btn btn/sm btn/outline">
                          <i class="fa fa-edit"></i>
                          </a>
-                      <a href="{{ route('department.destroy',$row->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบผู้ปฎิบัติงานที่เลือกใช่ไหม?')">
+                      <a href="{{ route('department.destroy',$row->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบแผนกงานที่เลือกใช่ไหม?')">
                          <i class="ni ni-fat-delete"></i>
                          </a>
                     </td>
