@@ -13,7 +13,7 @@
               <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item"><a href="/manage">จัดการข้อมูลพื้นฐาน</a></li>
               <li class="breadcrumb-item"><a href="/employee">จัดการข้อมูลแผนก</a></li>
-              <li class="breadcrumb-item"><a href="#">เพิ่มข้อมูลแผนก</a></li>
+              <li class="breadcrumb-item"><a href="#">แก้ไขข้อมูลแผนก</a></li>
           </ol>
         </nav>
 </div>

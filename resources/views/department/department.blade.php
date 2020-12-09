@@ -80,21 +80,7 @@
                          </a>
                     </td>
                 </form>
-                    
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" role="menu">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  @endforeach
+                @endforeach
 
                 </div>
                 </div>
