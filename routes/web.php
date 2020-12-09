@@ -45,6 +45,9 @@ Route::get('/edit{id}', 'App\Http\Controllers\departmentController@edit' ,functi
 Route::post('/department/update{id}', 'App\Http\Controllers\departmentController@update' ,function () {
     return view('welcome');
 })->name('department.update');
+Route::get('/deleteDepartment{id}', 'App\Http\Controllers\departmentController@destroy', function(){
+    return view('department.department');
+})->name('department.destroy');
 
 
 //team
@@ -52,5 +55,5 @@ Route::post('/department/update{id}', 'App\Http\Controllers\departmentController
 
 
 
-
 Route::get('/log_action/{id}/{table}','LogController@index');
+Route::get('/delete_worker/{id}','WorkerController@destroy');

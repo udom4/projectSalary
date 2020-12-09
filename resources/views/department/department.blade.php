@@ -63,21 +63,23 @@
                 </thead>
                 <tbody class="list">
                 @foreach ($dept as $row)
+                <form class="edit" action=" {{ route('department.edit',$row->id) }}" method="POST">
+                      {{ csrf_field() }}
                   <tr>
                     <th scope="row">
-                        <a href="">
+                        <a href="  ">
                         {{$row->dept_name}}
                         </a>
                     </th>
                     <td>
-                      <form class="edit" action=" {{ route('department.edit',$row->id) }}" method="POST">
-                      {{ csrf_field() }}
                       <a href="{{ route('department.edit',$row->id) }} " class="btn btn/sm btn/outline">
                          <i class="fa fa-edit"></i>
                          </a>
-                      </form>
-                        
+                      <a href="{{ route('department.destroy',$row->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบผู้ปฎิบัติงานที่เลือกใช่ไหม?')">
+                         <i class="ni ni-fat-delete"></i>
+                         </a>
                     </td>
+                </form>
                     
                     <td class="text-right">
                       <div class="dropdown">

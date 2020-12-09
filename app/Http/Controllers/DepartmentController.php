@@ -69,4 +69,12 @@ class DepartmentController extends Controller
         $dept->save();
         return redirect()->route('department.department')->with('status', 'ข้อมูลสำเร็จ');
     }
+
+
+    public function destroy($id)
+    {
+        $dept = department::find($id);
+        $dept->delete();
+        return redirect()->route('department.department')->with('status', 'ลบข้อมูลสำเร็จ');
+    }
 }
