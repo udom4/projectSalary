@@ -43,7 +43,7 @@
                   <tr>
                     <th scope="row">
                         <a href="#">
-                        {{$row->emp_id}}
+                        {{$row->id}}
                         </a>
                     </th>
                     <td class="budget">{{$row->emp_name}} &nbsp {{$row->emp_surname}}</td>

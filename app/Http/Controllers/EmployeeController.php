@@ -17,11 +17,11 @@ class employeeController extends Controller
     //
     public function info(){
         $emp = DB::table('employee')
-        ->join('department','employee.de_id','=','department.de_id')
-        ->join('team','employee.team_id','=','team.team_id')
-        ->join('position','employee.pos_id','=','position.pos_id')
-        ->join('bank','employee.bank_id','=','bank.bank_id')
-        ->join('type_employee','type_employee.type_emp_id','employee.type_emp_id')
+        ->join('department','employee.dept_id','=','department.id')
+        ->join('team','employee.team_id','=','team.id')
+        ->join('position','employee.pos_id','=','position.id')
+        ->join('bank','employee.bank_id','=','bank.id')
+        ->join('type_employee','type_employee.id','employee.type_emp_id')
         ->select('*')
         ->get();
 
