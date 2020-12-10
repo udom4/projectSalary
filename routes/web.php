@@ -63,7 +63,18 @@ Route::get('/deleteDepartment{id}', 'App\Http\Controllers\departmentController@d
 
 
 //team
-
+Route::get('/team{id}', 'App\Http\Controllers\teamController@info', function(){
+    return view('department.team');
+})->name('department.team');
+Route::get('/create_team{id}', 'App\Http\Controllers\teamController@create' ,function () {
+    return view('department.create_team');
+})->name('team.create');
+Route::post('/team/store', 'App\Http\Controllers\teamController@store' ,function () {
+    return view('welcome');
+})->name('team.store');
+Route::get('/deleteTeam{id}', 'App\Http\Controllers\teamController@destroy', function(){
+    return view('department.team');
+})->name('team.destroy');
 
 
 

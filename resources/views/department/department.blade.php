@@ -10,9 +10,9 @@
       <div class="row align-items-center py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
           <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
-              <li class="breadcrumb-item"><a href="/manage">จัดการข้อมูลพื้นฐาน</a></li>
-              <li class="breadcrumb-item"><a href="/employee">จัดการข้อมูลแผนก</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="{{ route('manage') }}">จัดการข้อมูลพื้นฐาน</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('department.department') }}">จัดการข้อมูลแผนก</a></li>
           </ol>
         </nav>
 </div>
@@ -67,7 +67,7 @@
                       {{ csrf_field() }}
                   <tr>
                     <th scope="row">
-                        <a href="  ">
+                        <a href="{{ route('department.team',$row->id) }} ">
                         {{$row->dept_name}}
                         </a>
                     </th>
@@ -79,6 +79,7 @@
                          <i class="ni ni-fat-delete"></i>
                          </a>
                     </td>
+                  </tr>
                 </form>
                 @endforeach
 
