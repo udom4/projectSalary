@@ -74,7 +74,7 @@
                                                         </a>
                                                     </th>
                                                     <td>
-                                                        <a href=" " class="btn btn/sm btn/outline">
+                                                        <a href=" {{ route('team.edit_team',$row->id) }} " class="btn btn/sm btn/outline">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
                                                         <a href=" {{ route('team.destroy',$row->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบทีมที่เลือกใช่ไหม?')">

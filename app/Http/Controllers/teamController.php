@@ -18,7 +18,7 @@ class teamController extends Controller
         ->where('team.dept_id','=', $id)
         ->get();
 
-        return view('department.team',compact('dept','team'));
+        return view('team.team',compact('dept','team'));
     }
 
     public function create($dept_id) {
@@ -28,7 +28,7 @@ class teamController extends Controller
         ->select('*')
         ->get();
 
-        return view('department.create_team',compact('dept', 'team'));
+        return view('team.create_team',compact('dept', 'team'));
     }
 
     //insert
@@ -50,7 +50,34 @@ class teamController extends Controller
         $team->dept_id = $request->dept_id;
         $team->save();
 
-        return redirect()->route('department.team',[$id])->with('status', 'บันทึกข้อมูลสำเร็จ');
+        return redirect()->route('team',[$id])->with('status', 'บันทึกข้อมูลสำเร็จ');
+    }
+
+    
+    public function edit_team($id)
+    {
+        $team = team::find($id);
+        return view('team.edit_team')
+        ->with('team',$team);
+    }
+
+    //update
+    public function update_team(Request $request, $id)
+    {
+
+        $dept_id = $request->dept_id;
+        //validate data
+        $rules = [
+            'team_name' => 'required',
+        ];
+
+        $request->validate($rules);
+
+        $team = team::find($id);
+        $team->update($request->all());
+
+        $team->save();
+        return redirect()->route('team',[$dept_id])->with('status', 'ข้อมูลสำเร็จ');
     }
 
     //delete

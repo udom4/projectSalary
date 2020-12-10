@@ -1,9 +1,8 @@
 @extends('layouts.master')
-@section('title', 'แก้ไขข้อมูลแผนก')
+@section('title', 'จัดการข้อมูลแผนก')
 @section('sidebar')
 @endsection
 @section('content')
-
 <div class="header bg-primary pb-6">
   <div class="container-fluid">
     <div class="header-body">
@@ -13,7 +12,7 @@
               <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item"><a href="{{ route('manage') }}">จัดการข้อมูลพื้นฐาน</a></li>
               <li class="breadcrumb-item"><a href="{{ route('department.department') }}">จัดการข้อมูลแผนก</a></li>
-              <li class="breadcrumb-item"><a href="#">แก้ไขข้อมูลแผนก</a></li>
+              <li class="breadcrumb-item"><a href="#">แก้ไขข้อมูลทีม</a></li>
           </ol>
         </nav>
 </div>
@@ -24,20 +23,21 @@
  <div class="card-header border-0">
  <div class="row align-items-center">
  <div class="col">
- <h3 class="mb-0">แก้ไขข้อมูลแผนก  {{$dept->dept_name}}</h3>
+ <h3 class="mb-0">แก้ไขข้อมูลทีม  {{$team->team_name}}</h3>
  </div>
  </div>
  </div>
 
  
- {!! Form::model($dept, ['url' => route('department.update', $dept->id) ,'method'=> 'post']) !!}
+ {!! Form::model($team, ['url' => route('team.update', $team->id) ,'method'=> 'post']) !!}
  <div class="row">
  <div class="col">
  <div class="form-group">
- {!! Form::label('name', 'department name'); !!}
- {!! Form::text('dept_name', null, 
-  ['class' => 'form-control',($errors->has('dept_name') ? 'is-invalid' : '') ,]); !!}
-  {!! $errors->first('dept_name', '<p class="text-red">:message</p>') !!}
+ {!! Form::hidden('dept_id', $team->dept_id , ['class' => 'form-control']);!!}
+ {!! Form::label('name', 'team name'); !!}
+ {!! Form::text('team_name', null, 
+  ['class' => 'form-control',($errors->has('team_name') ? 'is-invalid' : '') ,]); !!}
+  {!! $errors->first('team_name', '<p class="text-red">:message</p>') !!}
 </div>
  </div>
  </div>
@@ -52,3 +52,4 @@
  </div>
  </div>
 @endsection
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script>

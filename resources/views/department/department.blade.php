@@ -67,7 +67,7 @@
                       {{ csrf_field() }}
                   <tr>
                     <th scope="row">
-                        <a href="{{ route('department.team',$row->id) }} ">
+                        <a href="{{ route('team',$row->id) }} ">
                         {{$row->dept_name}}
                         </a>
                     </th>
