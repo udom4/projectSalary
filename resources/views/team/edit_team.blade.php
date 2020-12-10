@@ -52,4 +52,3 @@
  </div>
  </div>
 @endsection
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script>
