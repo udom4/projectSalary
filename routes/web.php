@@ -102,9 +102,12 @@ Route::get('/deletePosition{id}', 'App\Http\Controllers\positionController@destr
     return view('position.team');
 })->name('position.destroy');
 
+//employee
+Route::get('/employee', 'App\Http\Controllers\employeeController@info', function(){
+    return view('employee');
+})->name('employee');
 
 Route::get('/log_action/{id}/{table}','LogController@index');
 Route::get('/delete_worker/{id}','WorkerController@destroy');
 
 Route::get('contact', 'WebController@contact');
-Route::get('employee','App\Http\Controllers\employeeController@info');
