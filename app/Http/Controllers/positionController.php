@@ -54,4 +54,39 @@ class positionController extends Controller
  
          return redirect()->route('position',[$id])->with('status', 'บันทึกข้อมูลสำเร็จ');
      }
+
+
+     public function edit_position($id)
+    {
+        $position = position::find($id);
+        return view('position.edit_position')
+        ->with('position',$position);
+    }
+
+    //update
+    public function update_position(Request $request, $id)
+    {
+
+        $team_id = $request->team_id;
+        //validate data
+        $rules = [
+            'pos_name' => 'required',
+        ];
+
+        $request->validate($rules);
+
+        $position = position::find($id);
+        $position->update($request->all());
+
+        $position->save();
+        return redirect()->route('position',[$team_id])->with('status', 'ข้อมูลสำเร็จ');
+    }
+
+    //delete
+    public function destroy($id)
+    {
+        $position = position::find($id);
+        $position->delete();
+        return back()->with('status', 'ลบข้อมูลสำเร็จ');
+    }
 }

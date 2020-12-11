@@ -92,6 +92,15 @@ Route::get('/create_position{id}', 'App\Http\Controllers\positionController@crea
 Route::post('/position/store', 'App\Http\Controllers\positionController@store' ,function () {
     return view('welcome');
 })->name('position.store');
+Route::get('team/edit_position{id}', 'App\Http\Controllers\positionController@edit_position' ,function () {
+    return view('position.edit_position');
+})->name('position.edit_position');
+Route::post('/position/update{id}', 'App\Http\Controllers\positionController@update_position' ,function () {
+    return view('welcome');
+})->name('position.update');
+Route::get('/deletePosition{id}', 'App\Http\Controllers\positionController@destroy', function(){
+    return view('position.team');
+})->name('position.destroy');
 
 
 Route::get('/log_action/{id}/{table}','LogController@index');

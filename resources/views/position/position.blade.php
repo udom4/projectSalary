@@ -69,15 +69,15 @@
                                                 {{ csrf_field() }}
                                                 <tr>
                                                     <th scope="row">
-                                                        <a href=" {{ route('home') }} ">
+                                                        <a href="">
                                                             {{$row->pos_name}}
                                                         </a>
                                                     </th>
                                                     <td>
-                                                        <a href=" {{ route('team.edit_team',$row->id) }} " class="btn btn/sm btn/outline">
+                                                        <a href=" {{ route('position.edit_position',$row->id) }} " class="btn btn/sm btn/outline">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
-                                                        <a href=" {{ route('team.destroy',$row->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบทีมที่เลือกใช่ไหม?')">
+                                                        <a href=" {{ route('position.destroy',$row->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบตำแหน่งที่เลือกใช่ไหม?')">
                                                             <i class="ni ni-fat-delete"></i>
                                                         </a>
                                                     </td>
