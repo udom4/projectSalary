@@ -82,6 +82,7 @@ Route::post('/team/update{id}', 'App\Http\Controllers\teamController@update_team
 Route::get('/deleteTeam{id}', 'App\Http\Controllers\teamController@destroy', function(){
     return view('department.team');
 })->name('team.destroy');
+Route::post('/team/search',['as' => 'search-team' , 'uses' => 'App\Http\Controllers\teamController@searchTeam']);
 
 //position
 Route::get('/position{id}', 'App\Http\Controllers\positionController@info', function(){
@@ -102,6 +103,7 @@ Route::post('/position/update{id}', 'App\Http\Controllers\positionController@upd
 Route::get('/deletePosition{id}', 'App\Http\Controllers\positionController@destroy', function(){
     return view('position.team');
 })->name('position.destroy');
+Route::post('/position/search',['as' => 'search-pos' , 'uses' => 'App\Http\Controllers\positionController@searchPosition']);
 
 //employee
 Route::get('/employee', 'App\Http\Controllers\employeeController@info', function(){

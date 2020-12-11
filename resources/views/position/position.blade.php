@@ -17,7 +17,7 @@
                     </ol>
                 </nav>
             </div>
-        
+
             <div class="col text-right">
                 <a href=" {{ route('position.create', $team->id) }} " class="btn btn-success"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
             </div>
@@ -61,24 +61,22 @@
                     </div>
                 </div>
             @endif
-
-            <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-                <div class="form-group mb-0">
-                    <div class="input-group input-group-alternative input-group-merge">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-search"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="Search" type="text">
-                    </div>
-                </div>
-                <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </form>
-
             <div class="row">
                 <div class="col">
                     <div class="card">
+                        <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                            <div class="form-group mb-0">
+                                <div class="input-group input-group-alternative input-group-merge">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input type="text"  id="search-pos" class="form-control" placeholder="Search department....">
+                                </div>
+                            </div>
+                            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                        </form>
                         <!-- Card header -->
                         <!-- Light table -->
                         <h3 scope="col" class="sort" data-sort="budget">Team : {{ $team->team_name }} </h3>
@@ -89,7 +87,7 @@
                                             <th scope="col" class="sort" data-sort="budget">position name </th>
                                         </tr>
                                     </thead>
-                                    <tbody class="list">
+                                    <tbody class="list" id="dynamic-row">
                                         @foreach ($position as $row)
                                             <form class="edit" action=" {{ route('team.destroy',$row->id) }} " method="POST">
                                                 {{ csrf_field() }}
@@ -111,6 +109,36 @@
                                             </form>
                                         @endforeach
                                     </tbody>
+                                    <script type="text/javascript">
+                                        $('body').on('keyup','#search-pos', function(){
+                                            var searchQuest = $(this).val();
+                                            $.ajax({
+                                                method: 'POST',
+                                                url: '{{ route("search-pos") }}',
+                                                dataType: 'json',
+                                                data: {
+                                                    '_token' : '{{ csrf_token() }}',
+                                                    searchQuest: searchQuest,
+                                                },
+                                                success: function(res){
+                                                    var tableRow = res.length;
+                                                    $('#dynamic-row').html('');
+                                                    for(var i=0; i<tableRow; i++){
+
+                                                        var pos_id = res[i].id;
+                                                        var name = res[i].pos_name;
+                                                        var tr_str = "<tr>"+
+                                                                "<th>"+"<a href='/position"+pos_id+"'>"+name+"</a></th>"+
+                                                                "<td>"+"<a href='/edit_position"+pos_id+"' class='btn btn/sm btn/outline'>"+"<i class='fa fa-edit'></i></a>"+
+                                                                "<a href='/deletePosition"+pos_id+"' class='btn btn/sm btn/outline'>"+"<i class='ni ni-fat-delete'></i></a></td>"
+                                                                +"</tr>"
+                                                        $('#dynamic-row').append(tr_str);
+                                                        //console.log(tr_str)
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    </script>
                                 </table>
                             </div>
                     </div>

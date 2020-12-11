@@ -13,7 +13,7 @@ class positionController extends Controller
 
     public function info($id){
         $team = team::find($id);
-        
+
         $position = DB::table('position')
         ->select('*')
         ->where('position.team_id','=', $id)
@@ -35,23 +35,23 @@ class positionController extends Controller
      //insert
      public function store(Request $request)
      {
-             
+
          $id = $request->team_id;
          //validate data
          $rules = [
              'pos_name' => 'required',
-             
+
          ];
- 
+
          $request->validate($rules);
- 
- 
+
+
          $position = new position;
          $position->pos_name = $request->pos_name;
          $position->team_id = $request->team_id;
          $position->salary_rate = '1';
          $position->save();
- 
+
          return redirect()->route('position',[$id])->with('status', 'บันทึกข้อมูลสำเร็จ');
      }
 
@@ -88,5 +88,21 @@ class positionController extends Controller
         $position = position::find($id);
         $position->delete();
         return back()->with('delete', 'ลบข้อมูลสำเร็จ');
+    }
+
+    public function searchPosition(Request $request){
+        if(empty($request)){
+
+            $position = DB::table('position')
+                ->select('*')
+                ->get();
+                return json_encode( $position );
+
+        }
+
+        if(isset($request)){
+                $position = position::where('pos_name', 'like', '%' . $request ->get('searchQuest') . '%' )->get();
+                return json_encode( $position );
+        }
     }
 }

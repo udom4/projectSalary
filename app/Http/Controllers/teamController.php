@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\team;
 use App\department;
+use Illumminate\Support\Collection;
 
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class teamController extends Controller
     //
     public function info($id){
         $dept = department::find($id);
-        
+
         $team = DB::table('team')
         ->select('*')
         ->where('team.dept_id','=', $id)
@@ -34,12 +35,12 @@ class teamController extends Controller
     //insert
     public function store(Request $request)
     {
-            
+
         $id = $request->dept_id;
         //validate data
         $rules = [
             'team_name' => 'required',
-            
+
         ];
 
         $request->validate($rules);
@@ -53,7 +54,7 @@ class teamController extends Controller
         return redirect()->route('team',[$id])->with('status', 'บันทึกข้อมูลสำเร็จ');
     }
 
-    
+
     public function edit_team($id)
     {
         $team = team::find($id);
@@ -86,5 +87,21 @@ class teamController extends Controller
         $team = team::find($id);
         $team->delete();
         return back()->with('delete', 'ลบข้อมูลสำเร็จ');
+    }
+
+    public function searchTeam(Request $request){
+        if(empty($request)){
+
+            $team = DB::table('team')
+                ->select('*')
+                ->get();
+                return json_encode( $team );
+
+        }
+
+        if(isset($request)){
+                $team = team::where('team_name', 'like', '%' . $request ->get('searchQuest') . '%' )->get();
+                return json_encode( $team );
+        }
     }
 }
