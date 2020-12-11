@@ -89,10 +89,12 @@ class DepartmentController extends Controller
                 return json_encode( $dept );
 
         }
+        
         if(isset($request)){
                 $dept = department::where('dept_name', 'like', '%' . $request ->get('searchQuest') . '%' )->get();
                 return json_encode( $dept );
         }
+        
         //$search_text = $_GET['query'];
         //$emp = DB::table('depaetment')
             //->join('team','depaetment._id','=','team.dept_id')
