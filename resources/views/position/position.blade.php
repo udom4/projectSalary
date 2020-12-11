@@ -19,7 +19,7 @@
             </div>
         
             <div class="col text-right">
-                <a href=" {{ route('team.create', $dept->id) }} " class="btn btn-success"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
+                <a href=" {{ route('position.create', $team->id) }} " class="btn btn-success"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
             </div>
 
             @if (session('status'))
@@ -55,22 +55,22 @@
                     <div class="card">
                         <!-- Card header -->
                         <!-- Light table -->
-                        <h3 scope="col" class="sort" data-sort="budget">Department : {{ $dept->dept_name }} </h3>
+                        <h3 scope="col" class="sort" data-sort="budget">Team : {{ $team->team_name }} </h3>
                             <div class="table-responsive">
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col" class="sort" data-sort="budget">team_name </th>
+                                            <th scope="col" class="sort" data-sort="budget">position name </th>
                                         </tr>
                                     </thead>
                                     <tbody class="list">
-                                        @foreach ($team as $row)
+                                        @foreach ($position as $row)
                                             <form class="edit" action=" {{ route('team.destroy',$row->id) }} " method="POST">
                                                 {{ csrf_field() }}
                                                 <tr>
                                                     <th scope="row">
-                                                        <a href=" {{ route('position', $row->id) }} ">
-                                                            {{$row->team_name}}
+                                                        <a href=" {{ route('home') }} ">
+                                                            {{$row->pos_name}}
                                                         </a>
                                                     </th>
                                                     <td>

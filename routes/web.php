@@ -82,6 +82,16 @@ Route::get('/deleteTeam{id}', 'App\Http\Controllers\teamController@destroy', fun
     return view('department.team');
 })->name('team.destroy');
 
+//position
+Route::get('/position{id}', 'App\Http\Controllers\positionController@info', function(){
+    return view('position');
+})->name('position');
+Route::get('/create_position{id}', 'App\Http\Controllers\positionController@create' ,function () {
+    return view('position.create_position');
+})->name('position.create');
+Route::post('/position/store', 'App\Http\Controllers\positionController@store' ,function () {
+    return view('welcome');
+})->name('position.store');
 
 
 Route::get('/log_action/{id}/{table}','LogController@index');
