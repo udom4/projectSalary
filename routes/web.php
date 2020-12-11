@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//home 
+//home
 Route::get('/', 'App\Http\Controllers\WebController@home', function(){
     return view('home');
 })->name('home');
@@ -60,6 +60,7 @@ Route::post('/department/update{id}', 'App\Http\Controllers\departmentController
 Route::get('/deleteDepartment{id}', 'App\Http\Controllers\departmentController@destroy', function(){
     return view('department.department');
 })->name('department.destroy');
+Route::post('/department/search',['as' => 'search-dept','uses' => 'App\Http\Controllers\departmentController@searchDept']);
 
 
 //team

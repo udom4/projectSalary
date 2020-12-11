@@ -5,6 +5,7 @@ use DB;
 use App\department;
 use App\position;
 use App\team;
+use Illumminate\Support\Collection;
 
 use Illuminate\Http\Request;
 
@@ -53,7 +54,7 @@ class DepartmentController extends Controller
         return view('department.edit')
             ->with('dept',$dept);
     }
-  
+
     public function update(Request $request, $id)
     {
         //validate data
@@ -76,5 +77,29 @@ class DepartmentController extends Controller
         $dept = department::find($id);
         $dept->delete();
         return redirect()->route('department.department')->with('delete', 'ลบข้อมูลสำเร็จ');
+    }
+
+    public function searchDept(Request $request)
+    {
+        if(empty($request)){
+
+            $dept = DB::table('department')
+                ->select('*')
+                ->get();
+                return json_encode( $dept );
+
+        }
+        if(isset($request)){
+                $dept = department::where('dept_name', 'like', '%' . $request ->get('searchQuest') . '%' )->get();
+                return json_encode( $dept );
+        }
+        //$search_text = $_GET['query'];
+        //$emp = DB::table('depaetment')
+            //->join('team','depaetment._id','=','team.dept_id')
+        //    ->where('dept_name','LIKE','%'.$search_text.'%')
+        //    ->get();
+
+        //$employ = $emp;
+        //return view('department.department',compact('emp','employ'));
     }
 }
