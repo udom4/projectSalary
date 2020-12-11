@@ -127,8 +127,8 @@
                                             var name = res[i].dept_name;
                                             var tr_str = "<tr>"+
                                                     "<th>"+"<a href='/team"+dept_id+"'>"+name+"</a></th>"+
-                                                    "<td>"+"<a href='/edit"+dept_id+"' class='btn btn/sm btn/outline'>"+"<i class='fa fa-edit'></i></a></td>"+
-                                                    "<td>"+"<a href='/deleteDepartment"+dept_id+"' class='btn btn/sm btn/outline'>"+"<i class='ni ni-fat-delete'></i></a></td>"
+                                                    "<td>"+"<a href='/edit"+dept_id+"' class='btn btn/sm btn/outline'>"+"<i class='fa fa-edit'></i></a>"+
+                                                    "<a href='/deleteDepartment"+dept_id+"' class='btn btn/sm btn/outline'>"+"<i class='ni ni-fat-delete'></i></a></td>"
                                                     +"</tr>"
                                             $('#dynamic-row').append(tr_str);
 
