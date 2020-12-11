@@ -67,7 +67,7 @@ class DepartmentController extends Controller
         $dept->update($request->all());
 
         $dept->save();
-        return redirect()->route('department.department')->with('status', 'ข้อมูลสำเร็จ');
+        return redirect()->route('department.department')->with('update', 'ข้อมูลสำเร็จ');
     }
 
 
@@ -75,6 +75,6 @@ class DepartmentController extends Controller
     {
         $dept = department::find($id);
         $dept->delete();
-        return redirect()->route('department.department')->with('status', 'ลบข้อมูลสำเร็จ');
+        return redirect()->route('department.department')->with('delete', 'ลบข้อมูลสำเร็จ');
     }
 }

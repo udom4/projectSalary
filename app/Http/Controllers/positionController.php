@@ -79,7 +79,7 @@ class positionController extends Controller
         $position->update($request->all());
 
         $position->save();
-        return redirect()->route('position',[$team_id])->with('status', 'ข้อมูลสำเร็จ');
+        return redirect()->route('position',[$team_id])->with('update', 'ข้อมูลสำเร็จ');
     }
 
     //delete
@@ -87,6 +87,6 @@ class positionController extends Controller
     {
         $position = position::find($id);
         $position->delete();
-        return back()->with('status', 'ลบข้อมูลสำเร็จ');
+        return back()->with('delete', 'ลบข้อมูลสำเร็จ');
     }
 }

@@ -20,18 +20,44 @@
           <a href=" {{ route('department.create') }} " class="btn btn-success"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
         </div>
         @if (session('status'))
-          <div class="row">
-            <div class="col">
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <span class="alert-inner - icon"><i class="fa fa-check"></i></span>
-                <span class="alert-inner - text"><strong>Success!</strong> #</span>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        @endif
+                <div class="row">
+                    <div class="col">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <span class="alert-inner - icon"><i class="fa fa-check"></i></span>
+                            <span class="alert-inner - text"><strong>Success!</strong> เพิ่มข้อมูลสำเร็จ</span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if (session('update'))
+                <div class="row">
+                    <div class="col">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <span class="alert-inner - icon"><i class="fa fa-check"></i></span>
+                            <span class="alert-inner - text"><strong>Success!</strong> แก้ไขข้อมูลสำเร็จ</span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if (session('delete'))
+                <div class="row">
+                    <div class="col">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <span class="alert-inner - icon"><i class="fa fa-check"></i></span>
+                            <span class="alert-inner - text"><strong>Success!</strong> ลบข้อมูลสำเร็จ</span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endif
         <!-- Search form -->
         <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
           <div class="form-group mb-0">

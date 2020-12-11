@@ -77,7 +77,7 @@ class teamController extends Controller
         $team->update($request->all());
 
         $team->save();
-        return redirect()->route('team',[$dept_id])->with('status', 'ข้อมูลสำเร็จ');
+        return redirect()->route('team',[$dept_id])->with('update', 'ข้อมูลสำเร็จ');
     }
 
     //delete
@@ -85,6 +85,6 @@ class teamController extends Controller
     {
         $team = team::find($id);
         $team->delete();
-        return back()->with('status', 'ลบข้อมูลสำเร็จ');
+        return back()->with('delete', 'ลบข้อมูลสำเร็จ');
     }
 }
