@@ -29,4 +29,37 @@ class employeeController extends Controller
         return view('employee.employee',compact('emp','employ'));
 
     }
+
+
+    public function create() {
+        $emp = DB::table('department')
+        ->select('*')
+        ->get();
+
+        $bank = DB::table('bank')
+        ->select('*')
+        ->get();
+
+        $dept = DB::table('department')->pluck('dept_name', 'id');
+
+        $team = team::pluck('team_name','id');
+
+        $position = DB::table('position')
+        ->select('*')
+        ->get();
+
+        $type_employee = DB::table('type_employee')
+        ->select('*')
+        ->get();
+
+        return view('employee.create_employee',compact('dept', 'bank', 'dept', 'position', 'type_employee', 'team'));
+    }
+
+    public function findTeamID($id){
+        $team - team::where('dept_id',$id)->get();
+        return response()->json($team);
+    }
+
+    
+
 }

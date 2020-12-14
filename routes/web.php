@@ -113,7 +113,11 @@ Route::get('/create_employee', 'App\Http\Controllers\employeeController@create' 
     return view('employee.create_employee');
 })->name('employee.create');
 
+
 Route::get('/log_action/{id}/{table}','LogController@index');
 Route::get('/delete_worker/{id}','WorkerController@destroy');
 
 Route::get('contact', 'WebController@contact');
+
+//dropdown
+Route::get('get-team-list', 'dropdownController@getTeam');
