@@ -47,7 +47,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('name', 'name(Thai)'); !!}
-                                            {!! Form::text('emp_name', null, 
+                                            {!! Form::text('emp_name', null,
                                                 ['class' => 'form-control',($errors->has('emp_name') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('emp_name', '<p class="text-red">:message</p>') !!}
                                         </div>
@@ -55,7 +55,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('surname', 'surname(Thai)'); !!}
-                                            {!! Form::text('emp_surname', null, 
+                                            {!! Form::text('emp_surname', null,
                                                 ['class' => 'form-control',($errors->has('emp_surname') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('emp_surname', '<p class="text-red">:message</p>') !!}
                                         </div>
@@ -65,7 +65,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('en_name', 'name'); !!}
-                                            {!! Form::text('emp_en_name', null, 
+                                            {!! Form::text('emp_en_name', null,
                                                 ['class' => 'form-control',($errors->has('emp_surname') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('emp_surname', '<p class="text-red">:message</p>') !!}
                                         </div>
@@ -73,7 +73,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('en_surname', 'surname'); !!}
-                                            {!! Form::text('emp_en_surname', null, 
+                                            {!! Form::text('emp_en_surname', null,
                                                 ['class' => 'form-control',($errors->has('emp_en_surname') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('emp_en_surname', '<p class="text-red">:message</p>') !!}
                                         </div>
@@ -83,7 +83,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('nickname', 'nickname'); !!}
-                                            {!! Form::text('emp_nickname', null, 
+                                            {!! Form::text('emp_nickname', null,
                                                 ['class' => 'form-control',($errors->has('nickname') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('nickname', '<p class="text-red">:message</p>') !!}
                                         </div>
@@ -91,53 +91,60 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('start', 'start work'); !!}
-                                            {!! Form::text('emp_start_work', '', array('id' => 'datepicker'), ); !!}                         
+                                            {!! Form::text('emp_start_work', '', array('id' => 'datepicker'), ); !!}
                                         </div>
                                         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                                         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
                                         <script>
                                             $(function() {
                                                 $( "#datepicker" ).datepicker({
-                                                
+
                                                 });
                                             });
                                         </script>
                                     </div>
-                                </div>        
+                                </div>
                                 <div class="row">
                                 <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('start_emp', 'start employee'); !!}
-                                            {!! Form::text('emp_start_emp', '', array('id' => 'datepicker1'), ); !!}                         
+                                            {!! Form::text('emp_start_emp', '', array('id' => 'datepicker1'), ); !!}
                                         </div>
                                         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                                         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
                                         <script>
                                             $(function() {
                                                 $( "#datepicker1" ).datepicker({
-                                                
+
                                                 });
                                             });
                                         </script>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group">
-                                            {!! Form::label('de_id', 'select department'); !!}
-                                            {!! Form::select('dept_name', $dept ,'-- select department --',
-                                            ['class' => 'form-control'], ['id' => 'dept']); !!}
-                                        </div>
+                                        <h3>Depart</h3>
+                                        <select class="form-control formselect required" placeholder="Select Department" id="sub_detp_name">
+                                            <option value="0" disabled selected>Select Department*</option>
+                                            @foreach ($dept as $department)
+                                            <option value="{{ $department->id }}">
+                                                {{ ucfirst($department->dept_name) }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                </div>        
+                                </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="form-group">
-                                        {{ csrf_field() }}
-                                            {!! Form::label('te_id', 'team'); !!}
-                                            {!! Form::select('team_id', $team ,null,
-                                            ['class' => 'form-control']); !!}
-                                        </div>
+                                        <h3>Team</h3>
+                                            <select class="form-control formselect required" placeholder="Select Department" id="sub_detp">
+                                        </select>
                                     </div>
-                                </div>    
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h3>Pos</h3>
+                                            <select class="form-control formselect required" placeholder="Select Team" id="sub_team">
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="row mt-2">
                                     <div class="col">
                                         {!! Form::submit('บันทึก', ['class' => 'btn btn-primary']) !!}
@@ -153,33 +160,50 @@
 </div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script type="text/javascript" src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-	<script>
-         $(document).ready(function() {
-        $('#dept').on('change', function() {
-            var dept_ID = $(this).val();
-            if(dept_ID) {
-                $.ajax({
-                    url: '/findTeamID/'+dept_ID,
-                    type: "GET",
-                    data : {"_token":"{{ csrf_token() }}"},
-                    dataType: "json",
-                    success:function(data) {
-                        //console.log(data);
-                        $team_ = $team
+<script>
+    $(document).ready(function (){
+        $('#sub_detp_name').on('change', function(){
+            let id = $(this).val();
+            $('#sub_detp').empty();
+            $('#sub_detp').append('<option value="0" disabled selected>Processing...</option>');
+            $.ajax({
+                type: 'GET',
+                url: 'GetSubDept/' + id,
+                success: function(res){
+                    var res = JSON.parse(res);
+                    console.log(res);
+                    $('#sub_detp').empty();
+                    $('#sub_detp').append('<option value="0" disabled selected>Select Team*</option>');
+                    res.forEach(element => {
+                        $('#sub_detp').append(`<option value="${element['id']}">${element['team_name']}</option>`);
                     });
-                  }else{
-                    
-                  }
-                  }
-                });
-            }else{
-              
-            }
+                }
+            });
         });
     });
-    </script>
+
+    $(document).ready(function (){
+        $('#sub_detp').on('change', function(){
+            let id = $(this).val();
+            $('#sub_team').empty();
+            $('#sub_team').append('<option value="0" disabled selected>Processing...</option>');
+            $.ajax({
+                type: 'GET',
+                url: 'GetSubTeam/' + id,
+                success: function(res){
+                    var res = JSON.parse(res);
+                    console.log(res);
+                    $('#sub_team').empty();
+                    $('#sub_team').append('<option value="0" disabled selected>Select Position*</option>');
+                    res.forEach(element => {
+                        $('#sub_team').append(`<option value="${element['id']}">${element['pos_name']}</option>`);
+                    });
+                }
+            });
+        });
+    });
+</script>
 @endsection
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-3.4.1.js"></script>

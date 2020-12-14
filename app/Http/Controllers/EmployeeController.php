@@ -25,8 +25,7 @@ class employeeController extends Controller
         ->select('*')
         ->get();
 
-        $employ = $emp;
-        return view('employee.employee',compact('emp','employ'));
+        return view('employee.employee')->with('emp',$emp);
 
     }
 
@@ -40,7 +39,9 @@ class employeeController extends Controller
         ->select('*')
         ->get();
 
-        $dept = DB::table('department')->pluck('dept_name', 'id');
+        $dept = DB::table('department')
+                ->select('*')
+                ->get();
 
         $team = team::pluck('team_name','id');
 
@@ -60,6 +61,13 @@ class employeeController extends Controller
         return response()->json($team);
     }
 
-    
+    public function GetSubDept($id){
+        return json_encode(DB::table('team')->where('dept_id',$id)->get());
+    }
+
+    public function GetSubTeam($id){
+        return json_encode(DB::table('position')->where('team_id',$id)->get());
+    }
+
 
 }

@@ -119,5 +119,9 @@ Route::get('/delete_worker/{id}','WorkerController@destroy');
 
 Route::get('contact', 'WebController@contact');
 
+Route::get('GetSubDept/{id}','App\Http\Controllers\employeeController@GetSubDept');
+
+Route::get('GetSubTeam/{id}','App\Http\Controllers\employeeController@GetSubTeam');
+
 //dropdown
 Route::get('get-team-list', 'dropdownController@getTeam');

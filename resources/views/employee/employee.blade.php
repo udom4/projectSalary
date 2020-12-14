@@ -87,7 +87,7 @@
                         <td class="budget">{{$row->emp_name}} &nbsp {{$row->emp_surname}}</td>
                         <td class="budget">{{$row->emp_en_name}} &nbsp {{$row->emp_en_surname}}</td>
                         <td class="budget">{{$row->emp_nickname}}</td>
-                        <td class="budget">{{$row->de_name}}</td>
+                        <td class="budget">{{$row->dept_name}}</td>
                         <td class="budget">{{$row->emp_phone}}</td>
                         <td class="budget">{{$row->salary}}</td>
                         <td class="budget">{{$row->other}}</td>
