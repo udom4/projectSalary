@@ -109,6 +109,9 @@ Route::post('/position/search',['as' => 'search-pos' , 'uses' => 'App\Http\Contr
 Route::get('/employee', 'App\Http\Controllers\employeeController@info', function(){
     return view('employee');
 })->name('employee');
+Route::get('/create_employee', 'App\Http\Controllers\employeeController@create' ,function () {
+    return view('employee.create_employee');
+})->name('employee.create');
 
 Route::get('/log_action/{id}/{table}','LogController@index');
 Route::get('/delete_worker/{id}','WorkerController@destroy');
