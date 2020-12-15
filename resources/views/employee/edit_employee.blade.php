@@ -23,7 +23,7 @@
                         <div class="card-header border-0">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h3 class="mb-0">แก้ไขข้อมูลพนักงาน : {{$emp->emp_name}} {{$emp->emp_surname}}</h3>
+                                    <h3 class="mb-0">แก้ไขข้อมูลพนักงาน : {{ $emp->emp_name }} {{ $emp->emp_surname }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('emp_id', 'ID'); !!}
-                                    {!! Form::text('id', null,
+                                    {!! Form::text('id', $emp->id,
                                         ['class' => 'form-control',($errors->has('id') ? 'is-invalid' : '') ,]); !!}
                                     {!! $errors->first('id', '<p class="text-red">:message</p>') !!}
                                 </div>

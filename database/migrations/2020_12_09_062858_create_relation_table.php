@@ -14,7 +14,7 @@ class CreateRelationTable extends Migration
     public function up()
     {
         Schema::create('relation', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('relation_name');
             $table->timestamps();
         });

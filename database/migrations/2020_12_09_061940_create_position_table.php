@@ -14,10 +14,11 @@ class CreatePositionTable extends Migration
     public function up()
     {
         Schema::create('position', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('pos_name');
-            $table->integer('team_id')->unsigned();
-            $table->foreign('team_id')->references('id')->on('team');
+            //$table->integer('team_id')->unsigned();
+            //$table->foreign('team_id')->references('id')->on('team');
+            $table->foreignId('team_id')->constrained('team');
             $table->decimal('salary_rate',10,2);
             $table->timestamps();
         });

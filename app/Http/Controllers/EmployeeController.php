@@ -123,16 +123,20 @@ class employeeController extends Controller
     }
 
     public function edit_employee($id){
-        $emp = DB::table('employee')
-        ->join('department','employee.dept_id','=','department.id')
-        ->join('team','employee.team_id','=','team.id')
-        ->join('position','employee.pos_id','=','position.id')
-        ->join('bank','employee.bank_id','=','bank.id')
-        ->join('type_employee','type_employee.id','employee.type_emp_id')
-        ->select('*')
-        ->get();
+        $emp = employee::find($id);
 
-        return view('employee.edit_employee')->with('emp',$emp);
+        $dept = department::all()->pluck('dept_name', 'id');
+
+        $team = ['' => 'Please Select Department'] ;
+
+        $pos = ['' => 'Please Select Team'] ;
+
+        $bank = bank::all()->pluck('bank_name', 'id');
+
+        $type_employee = type_employee::all()->pluck('type_name', 'id');
+        
+        return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee]);
+        // return view('employee.edit_employee',compact('emp', 'dept', 'team', 'pos', 'type_employee','bank'));
     }
 
     public function update_employee(Request $request, $id){

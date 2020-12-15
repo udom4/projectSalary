@@ -14,11 +14,9 @@ class CreateDoOtTable extends Migration
     public function up()
     {
         Schema::create('do_ot', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('emp_id');
-            $table->foreign('emp_id')->references('id')->on('employee');
-            $table->integer('ot_rate_id')->unsigned();
-            $table->foreign('ot_rate_id')->references('id')->on('ot_rate');
+            $table->id();
+            $table->foreignId('emp_id')->constrained('employee');
+            $table->foreignId('ot_rate_id')->constrained('ot_rate');
             $table->date('do_ot_date');
             $table->integer('hours');
             $table->timestamps();

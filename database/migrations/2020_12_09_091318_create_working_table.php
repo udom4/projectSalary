@@ -14,9 +14,10 @@ class CreateWorkingTable extends Migration
     public function up()
     {
         Schema::create('working', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('emp_id');
-            $table->foreign('emp_id')->references('id')->on('employee');
+            $table->id();
+            //$table->string('emp_id');
+            //$table->foreign('emp_id')->references('id')->on('employee');
+            $table->foreignId('emp_id')->constrained('employee');
             $table->date('date_working');
             $table->time('start_working');
             $table->time('finish_working');

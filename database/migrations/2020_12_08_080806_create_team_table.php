@@ -14,10 +14,11 @@ class CreateTeamTable extends Migration
     public function up()
     {
         Schema::create('team', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('team_name');
-            $table->integer('dept_id')->unsigned(); 
-            $table->foreign('dept_id')->references('id')->on('department');
+            //$table->integer('dept_id')->unsigned(); 
+            //$table->foreign('dept_id')->references('id')->on('department');
+            $table->foreignId('dept_id')->constrained('department');
             $table->timestamps();
         });
     }

@@ -14,10 +14,11 @@ class CreateSalaryTable extends Migration
     public function up()
     {
         Schema::create('salary', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('salary_rate_id');
-            $table->string('emp_id');
-            $table->foreign('emp_id')->references('id')->on('employee');
+            //$table->unsignedBigInteger('emp_id');
+            //$table->foreign('emp_id')->references('id')->on('employee');
+            $table->foreignId('emp_id')->constrained('employee');
             $table->date('salary_month');
             $table->decimal('position_price',10, 2);
             $table->decimal('ppt_price',10, 2);
