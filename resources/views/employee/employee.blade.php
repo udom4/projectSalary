@@ -73,6 +73,7 @@
                       <span aria-hidden="true">×</span>
                     </button>
                 </form>
+            <div class="card">
               <!-- Card header -->
               <!-- Light table -->
               <div class="table-responsive">
