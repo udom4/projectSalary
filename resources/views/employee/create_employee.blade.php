@@ -42,7 +42,17 @@
                             </div>
                         </div>
                         <div class="card-body pt-0" style="min-height: 50vh">
-                            {!! Form::open(['url' =>''  ,'file'=>true]) !!}
+                            {!! Form::open(['url' => route('employee.store')  ,'file'=>true]) !!}
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('emp_id', 'ID'); !!}
+                                            {!! Form::text('id', null,
+                                                ['class' => 'form-control',($errors->has('id') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('id', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
@@ -66,8 +76,8 @@
                                         <div class="form-group">
                                             {!! Form::label('en_name', 'name'); !!}
                                             {!! Form::text('emp_en_name', null,
-                                                ['class' => 'form-control',($errors->has('emp_surname') ? 'is-invalid' : '') ,]); !!}
-                                            {!! $errors->first('emp_surname', '<p class="text-red">:message</p>') !!}
+                                                ['class' => 'form-control',($errors->has('emp_en_name') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('emp_en_name', '<p class="text-red">:message</p>') !!}
                                         </div>
                                     </div>
                                     <div class="col">
@@ -98,14 +108,14 @@
                                         <script>
                                             $(function() {
                                                 $( "#datepicker" ).datepicker({
-
+                                                        
                                                 });
                                             });
                                         </script>
                                     </div>
                                 </div>
                                 <div class="row">
-                                <div class="col">
+                                    <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('start_emp', 'start employee'); !!}
                                             {!! Form::text('emp_start_emp', '', array('id' => 'datepicker1'), ); !!}
@@ -121,7 +131,7 @@
                                         </script>
                                     </div>
                                     <div class="col">
-                                        <h3>Depart</h3>
+                                        {!! Form::label('de', 'Department'); !!}
                                         <select class="form-control formselect required" placeholder="Select Department" id="sub_detp_name">
                                             <option value="0" disabled selected>Select Department*</option>
                                             @foreach ($dept as $department)
@@ -133,16 +143,138 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <h3>Team</h3>
-                                            <select class="form-control formselect required" placeholder="Select Department" id="sub_detp">
-                                        </select>
+                                        <div class="form-group">
+                                        {!! Form::label('te', 'Team'); !!}
+                                        <select class="form-control formselect required" placeholder="Select Department" id="sub_detp"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        {!! Form::label('po', 'Position'); !!}
+                                            <select class="form-control formselect required" placeholder="Select Team" id="sub_team"></select>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <h3>Pos</h3>
-                                            <select class="form-control formselect required" placeholder="Select Team" id="sub_team">
-                                        </select>
+                                        <div class="form-group">
+                                            {!! Form::label('birthday', 'Birthday'); !!}
+                                            {!! Form::text('emp_birthday', '', array('id' => 'datepicker2'), ); !!}
+                                        </div>
+                                        <script>
+                                            $(function() {
+                                                $( "#datepicker2" ).datepicker({
+
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('numberID', 'NumberID'); !!}
+                                            {!! Form::text('emp_numberID', null,
+                                                ['class' => 'form-control',($errors->has('emp_numberID') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('emp_numberID', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('bankID', 'Bank Number'); !!}
+                                            {!! Form::text('bank_numberID', null,
+                                                ['class' => 'form-control',($errors->has('bank_numberID') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('bank_numberID', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('ban_id', 'Bank'); !!}
+                                            <select class="form-control formselect required" placeholder="Select Bank" id="sub_bank">
+                                                <option value="0" disabled selected>Select bank*</option>
+                                                @foreach ($bank as $row)
+                                                    <option value="{{ $row->id }}">
+                                                        {{ ($row->bank_name) }}
+                                                @endforeach
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('phone', 'Phone'); !!}
+                                            {!! Form::text('emp_phone', null,
+                                                ['class' => 'form-control',($errors->has('emp_phone') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('emp_phone', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('address', 'Address'); !!}
+                                            {!! Form::text('address', null,
+                                                ['class' => 'form-control',($errors->has('address') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('address', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('current', 'Current Address'); !!}
+                                            {!! Form::text('current_address', null,
+                                                ['class' => 'form-control',($errors->has('current_address') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('current_address', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('e-mail', 'E-mail'); !!}
+                                            {!! Form::text('emp_e_mail', null,
+                                                ['class' => 'form-control',($errors->has('emp_e_mail') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('emp_e_mail', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('company_mail', 'E-mail(company)'); !!}
+                                            {!! Form::text('comp_e_mail', null,
+                                                ['class' => 'form-control',($errors->has('address') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('address', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('type', 'Type Employee'); !!}
+                                            <select class="form-control formselect required" placeholder="Select Bank" id="sub_type">
+                                                <option value="0" disabled selected>Select Type*</option>
+                                                @foreach ($type_employee as $row)
+                                                    <option value="{{ $row->id }}">
+                                                        {{ ($row->type_name) }}
+                                                @endforeach
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            {!! Form::label('money', 'Salary'); !!}
+                                            {!! Form::text('salary', null,
+                                                ['class' => 'form-control',($errors->has('salary') ? 'is-invalid' : '') ,]); !!}
+                                            {!! $errors->first('salary', '<p class="text-red">:message</p>') !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                    <div class="form-group">
+                                            {!! Form::label('oth', 'Other'); !!}
+                                            {!! Form::text('other', null,
+                                                ['class' => 'form-control' ,]); !!}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mt-2">

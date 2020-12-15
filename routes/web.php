@@ -112,6 +112,9 @@ Route::get('/employee', 'App\Http\Controllers\employeeController@info', function
 Route::get('/create_employee', 'App\Http\Controllers\employeeController@create' ,function () {
     return view('employee.create_employee');
 })->name('employee.create');
+Route::post('/employee/store', 'App\Http\Controllers\employeeController@store' ,function () {
+    return view('welcome');
+})->name('employee.store');
 
 
 Route::get('/log_action/{id}/{table}','LogController@index');
