@@ -132,25 +132,21 @@
                                     </div>
                                     <div class="col">
                                         {!! Form::label('de', 'Department'); !!}
-                                        <select class="form-control formselect required" placeholder="Select Department" id="sub_detp_name">
-                                            <option value="0" disabled selected>Select Department*</option>
-                                            @foreach ($dept as $department)
-                                            <option value="{{ $department->id }}">
-                                                {{ ucfirst($department->dept_name) }}</option>
-                                            @endforeach
-                                        </select>
+                                        {!! Form::select('dept_id', $dept,null,['class' => 'form-control','id' => 'sub_detp_name']); !!}
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
                                         {!! Form::label('te', 'Team'); !!}
-                                        <select class="form-control formselect required" placeholder="Select Department" id="sub_detp"></select>
+                                        {!! Form::select('team_id', $team, null , ['class' => 'form-control', 'id' => 'sub_detp']); !!}
+                                        <!-- <select class="form-control formselect required" placeholder="Select Department" id="sub_detp"></select> -->
                                         </div>
                                     </div>
                                     <div class="col">
                                         {!! Form::label('po', 'Position'); !!}
-                                            <select class="form-control formselect required" placeholder="Select Team" id="sub_team"></select>
+                                        {!! Form::select('pos_id', $pos, null , ['class' => 'form-control', 'id' => 'sub_team']); !!}
+                                        <!-- <select class="form-control formselect required" placeholder="Select Team" id="sub_team"></select> -->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -188,14 +184,8 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('ban_id', 'Bank'); !!}
-                                            <select class="form-control formselect required" placeholder="Select Bank" id="sub_bank">
-                                                <option value="0" disabled selected>Select bank*</option>
-                                                @foreach ($bank as $row)
-                                                    <option value="{{ $row->id }}">
-                                                        {{ ($row->bank_name) }}
-                                                @endforeach
-                                                </option>
-                                            </select>
+                                            {!! Form::select('bank_id', $bank, 'null',
+                                            ['class' => 'form-control',]); !!}
                                         </div>
                                     </div>
                                 </div>
@@ -249,14 +239,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('type', 'Type Employee'); !!}
-                                            <select class="form-control formselect required" placeholder="Select Bank" id="sub_type">
-                                                <option value="0" disabled selected>Select Type*</option>
-                                                @foreach ($type_employee as $row)
-                                                    <option value="{{ $row->id }}">
-                                                        {{ ($row->type_name) }}
-                                                @endforeach
-                                                </option>
-                                            </select>
+                                            {!! Form::select('type_emp_id', $type_employee , null , ['class' => 'form-control']); !!}
                                         </div>
                                     </div>
                                     <div class="col">

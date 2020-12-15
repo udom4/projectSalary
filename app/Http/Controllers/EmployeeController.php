@@ -33,20 +33,18 @@ class employeeController extends Controller
     public function create() {
 
 
-        $bank = DB::table('bank')
-                ->select('id', 'bank_name')
-                ->get();
+        $bank = bank::all()->pluck('bank_name', 'id');
 
-        $dept = DB::table('department')
-                ->select('*')
-                ->get();
+        $dept = department::all()->pluck('dept_name', 'id');
+
+        $team = ['' => 'Please Select Department'] ;
+
+        $pos = ['' => 'Please Select Team'] ;
 
 
-        $type_employee = DB::table('type_employee')
-                ->select('*')
-                ->get();
+        $type_employee = type_employee::all()->pluck('type_name', 'id');
 
-        return view('employee.create_employee',compact('dept', 'bank', 'type_employee'));
+        return view('employee.create_employee',compact('team','dept', 'bank', 'type_employee','pos'));
     }
 
     //insert
@@ -94,24 +92,24 @@ class employeeController extends Controller
         $emp->emp_nickname = $request->emp_nickname;
         $emp->emp_start_work = $start;
         $emp->emp_start_emp = $start_emp;
-        $emp->dept_id = $request->sub_detp_name;
-        $emp->team_id = $request->sub_detp;
-        $emp->pos_id = $request->sub_team;
+        $emp->dept_id = $request->dept_id;
+        $emp->team_id = $request->team_id;
+        $emp->pos_id = $request->pos_id;
         $emp->emp_birthday = $birthday;
         $emp->emp_numberID = $request->emp_numberID;
         $emp->emp_bankID = $request->bank_numberID;
-        $emp->bank_id = $request->sub_bank;
+        $emp->bank_id = $request->bank_id;
         $emp->emp_phone = $request->emp_phone;
         $emp->emp_address = $request->address;
         $emp->current_address = $request->current_address;
         $emp->emp_e_mail = $request->emp_e_mail;
         $emp->comp_e_mail = $request->comp_e_mail;
-        $emp->type_emp_id = $request->sub_type;
+        $emp->type_emp_id = $request->type_emp_id;
         $emp->salary = $request->salary;
         $emp->other = $request->other;
         $emp->save();
 
-        return redirect()->route('employee.employee')->with('status', 'บันทึกข้อมูลสำเร็จ');
+        return redirect()->route('employee')->with('status', 'บันทึกข้อมูลสำเร็จ');
     }
 
 
