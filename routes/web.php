@@ -119,11 +119,20 @@ Route::post('/employee/store', 'App\Http\Controllers\employeeController@store' ,
 
 Route::get('/log_action/{id}/{table}','LogController@index');
 Route::get('/delete_worker/{id}','WorkerController@destroy');
-
 Route::get('contact', 'WebController@contact');
 
-Route::get('GetSubDept/{id}','App\Http\Controllers\employeeController@GetSubDept');
 
+Route::get('employee/edit_employee{id}', 'App\Http\Controllers\employeeController@edit_employee' ,function () {
+    return view('employee.edit_employee');
+})->name('employee.edit_employee');
+Route::post('/employee/update{id}', 'App\Http\Controllers\employeeController@update_employee' ,function () {
+    return view('welcome');
+})->name('employee.update');
+Route::get('/deleteEmployee{id}', 'App\Http\Controllers\employeeController@destroy', function(){
+    return view('employee');
+})->name('employee.destroy');
+
+Route::get('GetSubDept/{id}','App\Http\Controllers\employeeController@GetSubDept');
 Route::get('GetSubTeam/{id}','App\Http\Controllers\employeeController@GetSubTeam');
 
 //dropdown

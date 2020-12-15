@@ -108,7 +108,7 @@
                                         <script>
                                             $(function() {
                                                 $( "#datepicker" ).datepicker({
-                                                        
+
                                                 });
                                             });
                                         </script>
@@ -221,7 +221,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('e-mail', 'E-mail'); !!}
-                                            {!! Form::text('emp_e_mail', null,
+                                            {!! Form::email('emp_e_mail', null,
                                                 ['class' => 'form-control',($errors->has('emp_e_mail') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('emp_e_mail', '<p class="text-red">:message</p>') !!}
                                         </div>
@@ -229,7 +229,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('company_mail', 'E-mail(company)'); !!}
-                                            {!! Form::text('comp_e_mail', null,
+                                            {!! Form::email('comp_e_mail', null,
                                                 ['class' => 'form-control',($errors->has('address') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('address', '<p class="text-red">:message</p>') !!}
                                         </div>

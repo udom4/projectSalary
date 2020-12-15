@@ -122,5 +122,40 @@ class employeeController extends Controller
         return json_encode(DB::table('position')->where('team_id',$id)->get());
     }
 
+    public function edit_employee($id){
+        $emp = DB::table('employee')
+        ->join('department','employee.dept_id','=','department.id')
+        ->join('team','employee.team_id','=','team.id')
+        ->join('position','employee.pos_id','=','position.id')
+        ->join('bank','employee.bank_id','=','bank.id')
+        ->join('type_employee','type_employee.id','employee.type_emp_id')
+        ->select('*')
+        ->get();
+
+        return view('employee.edit_employee')->with('emp',$emp);
+    }
+
+    public function update_employee(Request $request, $id){
+        //validate data
+        $rules = [
+            //'dept_name' => 'required',
+        ];
+
+        //$request->validate($rules);
+
+        $emp = employee::find($id);
+        $emp->update($request->all());
+
+        $emp->save();
+        return redirect()->route('employee')->with('update', 'ข้อมูลสำเร็จ');
+    }
+
+    public function destroy($id)
+    {
+        $emp = employee::find($id);
+        $emp->delete();
+        return redirect()->route('employee')->with('delete', 'ลบข้อมูลสำเร็จ');
+    }
+
 
 }

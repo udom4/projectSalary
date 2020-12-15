@@ -60,6 +60,19 @@
         <div class="row">
           <div class="col">
             <div class="card">
+                <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative input-group-merge">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input type="text"  id="search-emp" class="form-control" placeholder="Search department....">
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                </form>
               <!-- Card header -->
               <!-- Light table -->
               <div class="table-responsive">
@@ -92,11 +105,14 @@
                         <td class="budget">{{$row->salary}}</td>
                         <td class="budget">{{$row->other}}</td>
                         <td class="text-right">
-                          <div class="dropdown">
-                            <a class="btn btn-sm btn-icon-only text-light"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fas fa-ellipsis-v"></i>
+                        <td>
+                            <a href=" {{ route('employee.edit_employee',$row->id) }} " class="btn btn/sm btn/outline">
+                                <i class="fa fa-edit"></i>
                             </a>
-                          </div>
+                            <a href=" {{ route('employee.destroy',$row->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
+                                <i class="ni ni-fat-delete"></i>
+                            </a>
+                        </td>
                         </td>
                       </tr>
                     @endforeach
