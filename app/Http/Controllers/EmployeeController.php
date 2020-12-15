@@ -22,7 +22,7 @@ class employeeController extends Controller
         ->join('position','employee.pos_id','=','position.id')
         ->join('bank','employee.bank_id','=','bank.id')
         ->join('type_employee','type_employee.id','employee.type_emp_id')
-        ->select('*')
+        ->select('employee.id','emp_name','emp_surname','emp_en_name','emp_en_surname','emp_nickname','department.dept_name','emp_phone','salary','other')
         ->get();
 
         return view('employee.employee')->with('emp',$emp);

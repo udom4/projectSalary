@@ -59,7 +59,7 @@
             @endif
         <div class="row">
           <div class="col">
-            <div class="card">
+            <div class="card"> 
               <!-- Card header -->
               <!-- Light table -->
               <div class="table-responsive">
