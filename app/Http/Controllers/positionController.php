@@ -95,13 +95,15 @@ class positionController extends Controller
 
             $position = DB::table('position')
                 ->select('*')
+                ->where('team_id',$request->get('team_id'))
                 ->get();
                 return json_encode( $position );
 
         }
 
         if(isset($request)){
-                $position = position::where('pos_name', 'like', '%' . $request ->get('searchQuest') . '%' )->get();
+                $position = position::where('team_id',$request->get('team_id'))
+                ->where('pos_name', 'like', '%' . $request ->get('searchQuest') . '%' )->get();
                 return json_encode( $position );
         }
     }

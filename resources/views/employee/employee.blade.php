@@ -100,6 +100,8 @@
                                         <td class="budget">{{$row->emp_en_name}} &nbsp {{$row->emp_en_surname}}</td>
                                         <td class="budget">{{$row->emp_nickname}}</td>
                                         <td class="budget">{{$row->dept_name}}</td>
+                                        <td class="budget">{{$row->team_name}}</td>
+                                        <td class="budget">{{$row->pos_name}}</td>
                                         <td class="budget">{{$row->emp_phone}}</td>
                                         <td class="budget">{{$row->salary}}</td>
                                         <td class="budget">{{$row->other}}</td>
@@ -140,8 +142,8 @@
                                                     //var start_work = res[i].emp_start_work;
                                                     //var start_emp = res[i].emp_start_emp;
                                                     var dept_name = res[i].dept_name;
-                                                    //var team_name = res[i].team_name;
-                                                    //var pos_name = res[i].pos_name;
+                                                    var team_name = res[i].team_name;
+                                                    var pos_name = res[i].pos_name;
                                                     //var birthday = res[i].birthday;
                                                     //var numberID = res[i].numberID;
                                                     //var bank_numberID = res[i].bank_numberID;
@@ -161,6 +163,8 @@
                                                         "<td class='budget'>"+ en_name +"&nbsp"+ en_surname +"</td>"+
                                                         "<td class='budget'>"+ nickname +"</td>"+
                                                         "<td class='budget'>"+ dept_name +"</td>"+
+                                                        "<td class='budget'>"+ team_name +"</td>"+
+                                                        "<td class='budget'>"+ pos_name +"</td>"+
                                                         "<td class='budget'>"+ phone +"</td>"+
                                                         "<td class='budget'>"+ salary +"</td>"+
                                                         "<td class='budget'>"+ other +"</td></tr>"

@@ -275,6 +275,7 @@
                     res.forEach(element => {
                         $('#sub_detp').append(`<option value="${element['id']}">${element['team_name']}</option>`);
                     });
+                    console.log(res)
                 }
             });
         });

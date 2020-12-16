@@ -94,13 +94,16 @@ class teamController extends Controller
 
             $team = DB::table('team')
                 ->select('*')
+                ->where('dept_id', $request->get('dept_id'))
                 ->get();
                 return json_encode( $team );
 
         }
 
         if(isset($request)){
-                $team = team::where('team_name', 'like', '%' . $request ->get('searchQuest') . '%' )->get();
+
+                $team = team::where('dept_id', $request->get('dept_id'))
+                    ->where('team_name', 'like', '%' . $request ->get('searchQuest') . '%' )->get();
                 return json_encode( $team );
         }
     }

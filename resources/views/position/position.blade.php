@@ -119,6 +119,7 @@
                                                 data: {
                                                     '_token' : '{{ csrf_token() }}',
                                                     searchQuest: searchQuest,
+                                                    team_id: {{ $team->id }},
                                                 },
                                                 success: function(res){
                                                     var tableRow = res.length;

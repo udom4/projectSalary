@@ -90,6 +90,7 @@
                                     </thead>
                                     <tbody id="dynamic-row" class="list">
                                         @foreach ($team as $row)
+
                                             <form class="edit" action=" {{ route('team.destroy',$row->id) }} " method="POST">
                                                 {{ csrf_field() }}
                                                 <tr>
@@ -120,8 +121,10 @@
                                                 data: {
                                                     '_token' : '{{ csrf_token() }}',
                                                     searchQuest: searchQuest,
+                                                    dept_id: {{ $dept->id }},
                                                 },
                                                 success: function(res){
+
                                                     var tableRow = res.length;
                                                     $('#dynamic-row').html('');
                                                     for(var i=0; i<tableRow; i++){
