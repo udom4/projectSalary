@@ -134,7 +134,7 @@ class employeeController extends Controller
         $bank = bank::all()->pluck('bank_name', 'id');
 
         $type_employee = type_employee::all()->pluck('type_name', 'id');
-        
+
         return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee]);
         // return view('employee.edit_employee',compact('emp', 'dept', 'team', 'pos', 'type_employee','bank'));
     }
@@ -159,6 +159,47 @@ class employeeController extends Controller
         $emp = employee::find($id);
         $emp->delete();
         return redirect()->route('employee')->with('delete', 'ลบข้อมูลสำเร็จ');
+    }
+
+    public function searchEmployee(Request $request)
+    {
+        if(empty($request)){
+
+            $emp = DB::table('employee')
+                ->join('department','employee.dept_id','=','department.id')
+                ->join('team','employee.team_id','=','team.id')
+                ->join('position','employee.pos_id','=','position.id')
+                ->join('bank','employee.bank_id','=','bank.id')
+                ->join('type_employee','type_employee.id','employee.type_emp_id')
+                ->select('*')
+                ->get();
+                return json_encode( $emp );
+
+        }
+
+        if(isset($request)){
+                $emp = employee::join('department','employee.dept_id','=','department.id')
+                ->join('team','employee.team_id','=','team.id')
+                ->join('position','employee.pos_id','=','position.id')
+                ->join('bank','employee.bank_id','=','bank.id')
+                ->join('type_employee','type_employee.id','employee.type_emp_id')
+                ->where('emp_id', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_surname', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_en_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_en_surname', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_nickname', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('dept_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('team_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('pos_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->orWhere('emp_name', 'like', '%' . $request ->get('searchQuest') . '%' )
+                ->get();
+                return json_encode( $emp );
+        }
     }
 
 

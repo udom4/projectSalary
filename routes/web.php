@@ -128,6 +128,7 @@ Route::get('/deleteEmployee{id}', 'App\Http\Controllers\employeeController@destr
 Route::get('GetSubDept/{id}','App\Http\Controllers\employeeController@GetSubDept');
 Route::get('GetSubTeam/{id}','App\Http\Controllers\employeeController@GetSubTeam');
 
+Route::post('/employee/search',['as' => 'search-emp' , 'uses' => 'App\Http\Controllers\employeeController@searchEmployee']);
 
 
 
