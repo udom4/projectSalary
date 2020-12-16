@@ -33,7 +33,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('emp_id', 'ID'); !!}
-                                    {!! Form::text('id', $emp->id,
+                                    {!! Form::text('id', $emp->emp_id,
                                         ['class' => 'form-control',($errors->has('id') ? 'is-invalid' : '') ,]); !!}
                                     {!! $errors->first('id', '<p class="text-red">:message</p>') !!}
                                 </div>
@@ -87,7 +87,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('start', 'start work'); !!}
-                                    {!! Form::text('emp_start_work', '', array('id' => 'datepicker'), ); !!}
+                                    {!! Form::text('emp_start_work', null, array('id' => 'datepicker'), ); !!}
                                 </div>
                                 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                                 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -104,7 +104,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('start_emp', 'start employee'); !!}
-                                    {!! Form::text('emp_start_emp', '', array('id' => 'datepicker1'), ); !!}
+                                    {!! Form::text('emp_start_emp', null, array('id' => 'datepicker1'), ); !!}
                                 </div>
                                 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                                 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -139,7 +139,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('birthday', 'Birthday'); !!}
-                                    {!! Form::text('emp_birthday', '', array('id' => 'datepicker2'), ); !!}
+                                    {!! Form::text('emp_birthday', null, array('id' => 'datepicker2'), ); !!}
                                 </div>
                                 <script>
                                     $(function() {
@@ -258,4 +258,51 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function (){
+        $('#sub_detp_name').on('change', function(){
+            let id = $(this).val();
+            $('#sub_detp').empty();
+            $('#sub_detp').append('<option value="0" disabled selected>Processing...</option>');
+            $.ajax({
+                type: 'GET',
+                url: 'GetSubDept/' + id,
+                success: function(res){
+                    var res = JSON.parse(res);
+                    console.log(res);
+                    $('#sub_detp').empty();
+                    $('#sub_detp').append('<option value="0" disabled selected>Select Team*</option>');
+                    res.forEach(element => {
+                        $('#sub_detp').append(`<option value="${element['id']}">${element['team_name']}</option>`);
+                    });
+                }
+            });
+        });
+    });
+
+    $(document).ready(function (){
+        $('#sub_detp').on('change', function(){
+            let id = $(this).val();
+            $('#sub_team').empty();
+            $('#sub_team').append('<option value="0" disabled selected>Processing...</option>');
+            $.ajax({
+                type: 'GET',
+                url: 'GetSubTeam/' + id,
+                success: function(res){
+                    var res = JSON.parse(res);
+                    console.log(res);
+                    $('#sub_team').empty();
+                    $('#sub_team').append('<option value="0" disabled selected>Select Position*</option>');
+                    res.forEach(element => {
+                        $('#sub_team').append(`<option value="${element['id']}">${element['pos_name']}</option>`);
+                    });
+                }
+            });
+        });
+    });
+</script>
 @endsection
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+
+
