@@ -101,7 +101,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('start', 'start work'); !!}
-                                            {!! Form::text('emp_start_work', '', array('id' => 'datepicker'), ); !!}
+                                            {!! Form::text('emp_start_work', '', array('id' => 'datepicker','class' => 'form-control'), ); !!}
                                         </div>
                                         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                                         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -118,7 +118,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('start_emp', 'start employee'); !!}
-                                            {!! Form::text('emp_start_emp', '', array('id' => 'datepicker1'), ); !!}
+                                            {!! Form::text('emp_start_emp', '', array('id' => 'datepicker1','class' => 'form-control'), ); !!}
                                         </div>
                                         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                                         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -153,7 +153,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('birthday', 'Birthday'); !!}
-                                            {!! Form::text('emp_birthday', '', array('id' => 'datepicker2'), ); !!}
+                                            {!! Form::text('emp_birthday', '', array('id' => 'datepicker2','class' => 'form-control'), ); !!}
                                         </div>
                                         <script>
                                             $(function() {
