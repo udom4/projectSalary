@@ -130,7 +130,7 @@ class employeeController extends Controller
 
 
     public function GetSubDept($id){
-        return json_encode(DB::table('team')->where('dept_id',$id)->pluck('team_name', 'id'));
+        return json_encode(DB::table('team')->where('dept_id',$id)->get());
     }
 
     public function GetSubTeam($id){
@@ -144,13 +144,13 @@ class employeeController extends Controller
 
         $team = DB::table('team')
                 ->join('employee','employee.team_id', '=', 'team.id')
-                
-                ->where ('employee.id' , '=', $id) 
+
+                ->where ('employee.id' , '=', $id)
                 ->pluck('team_name','team.id');
 
         $pos = DB::table('position')
                 ->join('employee','employee.pos_id', '=', 'position.id')
-                ->where ('employee.id' , '=', $id) 
+                ->where ('employee.id' , '=', $id)
                 ->pluck('pos_name','position.id'); ;
 
         $bank = bank::all()->pluck('bank_name', 'id');

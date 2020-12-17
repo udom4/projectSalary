@@ -87,7 +87,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('start', 'start work'); !!}
-                                    {!! Form::text('emp_start_work', null, array('id' => 'datepicker'), ); !!}
+                                    {!! Form::text('emp_start_work', null, array('id' => 'datepicker','class' => 'form-control'), ); !!}
                                 </div>
                                 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                                 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -104,7 +104,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('start_emp', 'start employee'); !!}
-                                    {!! Form::text('emp_start_emp', null, array('id' => 'datepicker1'), ); !!}
+                                    {!! Form::text('emp_start_emp', null, array('id' => 'datepicker1','class' => 'form-control'), ); !!}
                                 </div>
                                 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
                                 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -137,9 +137,9 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <div class="form-group">
+                                <div class="form-group" >
                                     {!! Form::label('birthday', 'Birthday'); !!}
-                                    {!! Form::text('emp_birthday', null, array('id' => 'datepicker2'), ); !!}
+                                    {!! Form::text('emp_birthday', null, array('id' => 'datepicker2','class' => 'form-control')); !!}
                                 </div>
                                 <script>
                                     $(function() {
@@ -162,7 +162,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('bankID', 'Bank Number'); !!}
-                                    {!! Form::text('emp_bankID', null, 
+                                    {!! Form::text('emp_bankID', null,
                                         ['class' => 'form-control',($errors->has('bank_numberID') ? 'is-invalid' : '') ,]); !!}
                                     {!! $errors->first('bank_numberID', '<p class="text-red">:message</p>') !!}
                                 </div>
@@ -266,7 +266,7 @@
             $('#sub_detp').append('<option value="0" disabled selected>Processing...</option>');
             $.ajax({
                 type: 'GET',
-                url: 'GetSubDept/' + id,
+                url: '/GetSubDept/' + id,
                 success: function(res){
                     var res = JSON.parse(res);
                     console.log(res);
@@ -288,7 +288,7 @@
             $('#sub_team').append('<option value="0" disabled selected>Processing...</option>');
             $.ajax({
                 type: 'GET',
-                url: 'GetSubTeam/' + id,
+                url: '/GetSubTeam/' + id,
                 success: function(res){
                     var res = JSON.parse(res);
                     console.log(res);
