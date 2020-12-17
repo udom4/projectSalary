@@ -29,6 +29,21 @@ class employeeController extends Controller
 
     }
 
+    public function desc($id){
+        $emp = DB::table('employee')
+            ->join('department','employee.dept_id','=','department.id')
+            ->join('team','employee.team_id','=','team.id')
+            ->join('position','employee.pos_id','=','position.id')
+            ->join('bank','employee.bank_id','=','bank.id')
+            ->join('type_employee','type_employee.id','employee.type_emp_id')
+            ->select('*')
+            ->where('employee.id',$id)
+            ->first($id);
+
+        return view('employee.employee_desc',compact('emp'));
+
+    }
+
 
     public function create() {
 

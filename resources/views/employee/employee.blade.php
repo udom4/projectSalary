@@ -66,7 +66,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                                     </div>
-                                    <input type="text"  id="search-emp" class="form-control" placeholder="Search department....">
+                                    <input type="text"  id="search-emp" class="form-control" placeholder="Search employee....">
                                 </div>
                             </div>
                             <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -85,6 +85,8 @@
                                         <th scope="col" class="sort" data-sort="name">Name</th>
                                         <th scope="col" class="sort" data-sort="name">Nickname</th>
                                         <th scope="col" class="sort" data-sort="name">Department</th>
+                                        <th scope="col" class="sort" data-sort="name">Team</th>
+                                        <th scope="col" class="sort" data-sort="name">Position</th>
                                         <th scope="col" class="sort" data-sort="name">Tel.Number</th>
                                         <th scope="col" class="sort" data-sort="name">Salary</th>
                                         <th scope="col" class="sort" data-sort="name">Other</th>
@@ -94,7 +96,7 @@
                                     @foreach ($emp as $row)
                                     <tr>
                                         <th scope="row">
-                                            <a href="#">{{$row->emp_id}}</a>
+                                            <a href="{{ route('employee.employee_desc',$row->id) }}">{{$row->emp_id}}</a>
                                         </th>
                                         <td class="budget">{{$row->emp_name}} &nbsp {{$row->emp_surname}}</td>
                                         <td class="budget">{{$row->emp_en_name}} &nbsp {{$row->emp_en_surname}}</td>

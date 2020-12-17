@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'จัดการข้อมูลทีม')
+@section('title', 'จัดการข้อมูลตำแหน่ง')
 @section('sidebar')
 @endsection
 @section('content')
@@ -14,6 +14,7 @@
                         <li class="breadcrumb-item"><a href="{{ route('manage') }}">จัดการข้อมูลพื้นฐาน</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('department.department') }}">จัดการข้อมูลแผนก</a></li>
                         <li class="breadcrumb-item"><a href="">จัดการข้อมูลทีม</a></li>
+                        <li class="breadcrumb-item"><a href="">จัดการข้อมูลตำแหน่ง</a></li>
                     </ol>
                 </nav>
             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'จัดการข้อมูลแผนก')
+@section('title', 'เพิ่มข้อมูลทีม')
 @section('sidebar')
 @endsection
 @section('content')
@@ -48,7 +48,7 @@
                                         <div class="form-group">
                                             {!! Form::hidden('dept_id', $dept->id , ['class' => 'form-control']);!!}
                                             {!! Form::label('name', 'team name'); !!}
-                                            {!! Form::text('team_name', null, 
+                                            {!! Form::text('team_name', null,
                                                 ['class' => 'form-control',($errors->has('team_name') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('team_name', '<p class="text-red">:message</p>') !!}
                                         </div>
