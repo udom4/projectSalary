@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="col">
                                         {!! Form::label('de', 'Department'); !!}
-                                        {!! Form::select('dept_id', $dept,null,['class' => 'form-control','id' => 'sub_detp_name']); !!}
+                                        {!! Form::select('dept_id', $dept,null,['class' => 'form-control','id' => 'sub_detp_name', 'placeholder' => 'Department Name']); !!}
                                     </div>
                                 </div>
                                 <div class="row">

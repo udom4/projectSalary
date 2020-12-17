@@ -33,7 +33,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('emp_id', 'ID'); !!}
-                                    {!! Form::text('id', $emp->emp_id,
+                                    {!! Form::text('emp_id', null,
                                         ['class' => 'form-control',($errors->has('id') ? 'is-invalid' : '') ,]); !!}
                                     {!! $errors->first('id', '<p class="text-red">:message</p>') !!}
                                 </div>
@@ -118,7 +118,7 @@
                             </div>
                             <div class="col">
                                 {!! Form::label('de', 'Department'); !!}
-                                {!! Form::select('dept_id', $dept,null,['class' => 'form-control','id' => 'sub_detp_name']); !!}
+                                {!! Form::select('dept_id', $dept,null,['class' => 'form-control','id' => 'sub_detp_name', 'placeholder' => 'Department Name']); !!}
                             </div>
                         </div>
                         <div class="row">
@@ -162,7 +162,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('bankID', 'Bank Number'); !!}
-                                    {!! Form::text('bank_numberID', null,
+                                    {!! Form::text('emp_bankID', null, 
                                         ['class' => 'form-control',($errors->has('bank_numberID') ? 'is-invalid' : '') ,]); !!}
                                     {!! $errors->first('bank_numberID', '<p class="text-red">:message</p>') !!}
                                 </div>
@@ -187,7 +187,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {!! Form::label('address', 'Address'); !!}
-                                    {!! Form::text('address', null,
+                                    {!! Form::text('emp_address', null,
                                         ['class' => 'form-control',($errors->has('address') ? 'is-invalid' : '') ,]); !!}
                                     {!! $errors->first('address', '<p class="text-red">:message</p>') !!}
                                 </div>

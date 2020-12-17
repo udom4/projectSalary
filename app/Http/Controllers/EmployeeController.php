@@ -127,16 +127,24 @@ class employeeController extends Controller
 
         $dept = department::all()->pluck('dept_name', 'id');
 
-        $team = ['' => 'Please Select Department'] ;
+        $team = DB::table('team')
+                ->join('employee','employee.team_id', '=', 'team.id')
+                
+                ->where ('employee.id' , '=', $id) 
+                ->pluck('team_name','team.id');
 
-        $pos = ['' => 'Please Select Team'] ;
+        $pos = DB::table('position')
+                ->join('employee','employee.pos_id', '=', 'position.id')
+                ->where ('employee.id' , '=', $id) 
+                ->pluck('pos_name','position.id'); ;
 
         $bank = bank::all()->pluck('bank_name', 'id');
 
+
         $type_employee = type_employee::all()->pluck('type_name', 'id');
 
-        return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee]);
-        // return view('employee.edit_employee',compact('emp', 'dept', 'team', 'pos', 'type_employee','bank'));
+        // return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee , 'bankID' => $bankID]);
+        return view('employee.edit_employee',compact('emp', 'dept', 'team', 'pos', 'type_employee','bank'));
     }
 
     public function update_employee(Request $request, $id){
