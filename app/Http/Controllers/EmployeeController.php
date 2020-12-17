@@ -115,7 +115,7 @@ class employeeController extends Controller
 
 
     public function GetSubDept($id){
-        return json_encode(DB::table('team')->where('dept_id',$id)->get());
+        return json_encode(DB::table('team')->where('dept_id',$id)->pluck('team_name', 'id'));
     }
 
     public function GetSubTeam($id){
