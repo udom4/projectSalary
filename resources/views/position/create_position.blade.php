@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'จัดการข้อมูลแผนก')
+@section('title', 'เพิ่มข้อมูลตำแหน่ง')
 @section('sidebar')
 @endsection
 @section('content')
@@ -13,6 +13,7 @@
                         <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
                         <li class="breadcrumb-item"><a href="/manage">จัดการข้อมูลพื้นฐาน</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('department.department') }}">จัดการข้อมูลแผนก</a></li>
+                        <li class="breadcrumb-item"><a href="">จัดการข้อมูลทีม</a></li>
                         <li class="breadcrumb-item"><a href="#">เพิ่มข้อมูลตำแหน่ง</a></li>
                     </ol>
                 </nav>
@@ -48,7 +49,7 @@
                                         <div class="form-group">
                                             {!! Form::hidden('team_id', $team->id , ['class' => 'form-control']);!!}
                                             {!! Form::label('name', 'position name'); !!}
-                                            {!! Form::text('pos_name', null, 
+                                            {!! Form::text('pos_name', null,
                                                 ['class' => 'form-control',($errors->has('team_name') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('pos_name', '<p class="text-red">:message</p>') !!}
                                         </div>

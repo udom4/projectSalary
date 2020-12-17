@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'จัดการข้อมูลแผนก')
+@section('title', 'เพิ่มข้อมูลแผนก')
 @section('sidebar')
 @endsection
 @section('content')
@@ -35,7 +35,7 @@
                     <div class="col">
                       <div class="form-group">
                         {!! Form::label('name', 'department name'); !!}
-                        {!! Form::text('dept_name', null, 
+                        {!! Form::text('dept_name', null,
                           ['class' => 'form-control',($errors->has('dept_name') ? 'is-invalid' : '') ,]); !!}
                           {!! $errors->first('dept_name', '<p class="text-red">:message</p>') !!}
                       </div>

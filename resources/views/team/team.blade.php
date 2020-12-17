@@ -71,7 +71,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                                     </div>
-                                    <input type="text"  id="search-team" class="form-control" placeholder="Search department....">
+                                    <input type="text"  id="search-team" class="form-control" placeholder="Search team....">
                                 </div>
                             </div>
                             <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
