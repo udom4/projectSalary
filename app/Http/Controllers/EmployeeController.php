@@ -52,39 +52,39 @@ class employeeController extends Controller
     {
 
 
-        //validate data
-        // $rules = [
-        //     'id' => 'required',
-        //     'emp_name' => 'required',
-        //     'emp_surname' => 'required',
-        //     'emp_en_name' => 'required',
-        //     'emp_en_surname' => 'required',
-        //     'emp_nickname' => 'required',
-        //     'emp_start_work' => 'required',
-        //     'emp_start_emp' => 'required',
-        //     'emp_name' => 'required',
-        //     'dept_id' => 'required',
-        //     'team_id' => 'required',
-        //     'pos_id' => 'required',
-        //     'emp_birthday' => 'required',
-        //     'emp_numberID' => 'required',
-        //     'bank_numberID' => 'required',
-        //     'bank_id' => 'required',
-        //     'emp_phone' => 'required',
-        //     'address' => 'required',
-        //     'current_address' => 'required',
-        //     'emp_e_mail' => 'required',
-        //     'type_employee' => 'required',
-        //     'salary' => 'required',
-        // ];
+        // validate data
+         $rules = [
+            'emp_id' => 'required',
+            'emp_name' => 'required',
+            'emp_surname' => 'required',
+            'emp_en_name' => 'required',
+            'emp_en_surname' => 'required',
+            'emp_nickname' => 'required',
+            'emp_start_work' => 'required',
+            'emp_start_emp' => 'required',
+            'emp_name' => 'required',
+            'dept_id' => 'required',
+            'team_id' => 'required',
+            'pos_id' => 'required',
+            'emp_birthday' => 'required',
+            'emp_numberID' => 'required',
+            'bank_numberID' => 'required',
+            'bank_id' => 'required',
+            'emp_phone' => 'required',
+            'address' => 'required',
+            'current_address' => 'required',
+            'emp_e_mail' => 'required',
+            'type_emp_id' => 'required',
+            'salary' => 'required',
+        ];
 
-        // $request->validate($rules);
+        $request->validate($rules);
         $start = date("Y-m-d",strtotime($request->emp_start_work));
         $start_emp = date("Y-m-d",strtotime($request->emp_start_emp));
         $birthday = date("Y-m-d",strtotime($request->emp_birthday));
 
         $emp = new employee;
-        $emp->emp_id = $request->id;
+        $emp->emp_id = $request->emp_id;
         $emp->emp_name = $request->emp_name;
         $emp->emp_surname = $request->emp_surname;
         $emp->emp_en_name = $request->emp_en_name;

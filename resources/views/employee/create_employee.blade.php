@@ -47,7 +47,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('emp_id', 'ID'); !!}
-                                            {!! Form::text('id', null,
+                                            {!! Form::text('emp_id', null,
                                                 ['class' => 'form-control',($errors->has('id') ? 'is-invalid' : '') ,]); !!}
                                             {!! $errors->first('id', '<p class="text-red">:message</p>') !!}
                                         </div>
