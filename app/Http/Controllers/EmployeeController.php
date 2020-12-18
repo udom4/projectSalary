@@ -148,12 +148,34 @@ class employeeController extends Controller
     }
 
     public function update_employee(Request $request, $id){
-        //validate data
-        $rules = [
-            //'dept_name' => 'required',
-        ];
+        // validate data
+        // $rules = [
+        //     'emp_id' => 'required',
+        //     'emp_name' => 'required',
+        //     'emp_surname' => 'required',
+        //     'emp_en_name' => 'required',
+        //     'emp_en_surname' => 'required',
+        //     'emp_nickname' => 'required',
+        //     'emp_start_work' => 'required',
+        //     'emp_start_emp' => 'required',
+        //     'emp_name' => 'required',
+        //     'dept_id' => 'required',
+        //     'team_id' => 'required',
+        //     'pos_id' => 'required',
+        //     'emp_birthday' => 'required',
+        //     'emp_numberID' => 'required',
+        //     'bank_numberID' => 'required',
+        //     'bank_id' => 'required',
+        //     'emp_phone' => 'required',
+        //     'address' => 'required',
+        //     'current_address' => 'required',
+        //     'emp_e_mail' => 'required',
+        //     'comp_e_mail' => 'required',
+        //     'type_emp_id' => 'required',
+        //     'salary' => 'required',
+        // ];
 
-        //$request->validate($rules);
+        // $request->validate($rules);
 
         $emp = employee::find($id);
         $emp->update($request->all());
