@@ -136,15 +136,21 @@ class employeeController extends Controller
         $pos = DB::table('position')
                 ->join('employee','employee.pos_id', '=', 'position.id')
                 ->where ('employee.id' , '=', $id)
-                ->pluck('pos_name','position.id'); ;
+                ->pluck('pos_name','position.id');
 
         $bank = bank::all()->pluck('bank_name', 'id');
+
+        $emergency = DB::table('emergency_call')
+                ->join('employee','emergency_call.emp_id','=','employee.id')
+                ->join('relation','emergency_call.relation_id','=','relation.id')
+                ->where ('employee.id','=', $id)
+                ->get();
 
 
         $type_employee = type_employee::all()->pluck('type_name', 'id');
 
         // return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee , 'bankID' => $bankID]);
-        return view('employee.edit_employee',compact('emp', 'dept', 'team', 'pos', 'type_employee','bank'));
+        return view('employee.edit_employee',compact('emp', 'dept', 'team', 'pos', 'type_employee','bank','emergency'));
     }
 
     public function update_employee(Request $request, $id){
@@ -208,7 +214,7 @@ class employeeController extends Controller
                 ->get();
                 return json_encode( $emp );
         }
-        
+
     }
     public function desc($id){
         $emp = DB::table('employee')
@@ -221,7 +227,14 @@ class employeeController extends Controller
             ->where('employee.id',$id)
             ->first($id);
 
-        return view('employee.employee_desc',compact('emp'));
+            $emergency = DB::table('emergency_call')
+                ->join('employee','emergency_call.emp_id','=','employee.id')
+                ->join('relation','emergency_call.relation_id','=','relation.id')
+                ->where ('employee.id','=', $id)
+                ->get();
+
+
+        return view('employee.employee_desc',compact('emp','emergency'));
 
     }
 
