@@ -143,8 +143,8 @@ class employeeController extends Controller
 
         $type_employee = type_employee::all()->pluck('type_name', 'id');
 
-        // return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee , 'bankID' => $bankID]);
-        return view('employee.edit_employee',compact('emp', 'dept', 'team', 'pos', 'type_employee','bank'));
+        return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee ]);
+        //return view('employee.edit_employee',compact('emp', 'dept', 'team', 'pos', 'type_employee','bank'));
     }
 
     public function update_employee(Request $request, $id){
