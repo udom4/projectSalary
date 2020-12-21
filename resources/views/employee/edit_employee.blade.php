@@ -248,6 +248,7 @@
                         <div class="row mt-2">
                             <div class="col">
                                 {!! Form::submit('บันทึก', ['class' => 'btn btn-primary']) !!}
+                                <a href=" {{ route('employee') }} " class="btn btn-success"> ย้อนกลับ </a>
                             </div>
                         </div>
                         {!! Form::close() !!}
