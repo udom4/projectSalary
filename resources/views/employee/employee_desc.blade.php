@@ -129,7 +129,7 @@
                                     <h3>ผู้ติดต่อฉุกเฉิน</h3>
                                     <tr>
                                         <td>
-                                            <a href=" {{ route('contact.create',$emp->id) }} ">
+                                            <a href=" {{ route('contact.create',$emp_id) }} ">
                                                 <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
                                                     <div>
                                                         <i class="fa fa-plus"></i>
@@ -153,7 +153,6 @@
                                         <td class="budget">{{$emerg->relation_name}}</td>
                                         <td>
                                             <a href=" {{ route('contact.edit_contact',$emerg->id ) }} " class="btn btn/sm btn/outline">
-                                            {!! Form::hidden('emp_id', $emerg->emp_id , ['class' => 'form-control']);!!}
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a href=" {{ route('contact.destroy',$emerg->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">

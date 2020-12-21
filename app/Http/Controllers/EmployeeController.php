@@ -336,7 +336,6 @@ class employeeController extends Controller
 
 
     public function update_contact(Request $request, $id){
-        $emp_id = $request->emp;
         // validate data
         // $rules = [
         //     'emp_id' => 'required',
@@ -367,18 +366,19 @@ class employeeController extends Controller
         // $request->validate($rules);
 
         $contact = emergency_call::find($id);
+        $find = $contact->emp_id;
         $contact->update($request->all());
 
         $contact->save();
-        return redirect()->route('employee.employee_desc',[$emp_id])->with('update', 'ข้อมูลสำเร็จ');
+        return redirect()->route('employee.employee_desc',[$find])->with('update', 'ข้อมูลสำเร็จ');
     }
 
     public function destroy_contact($id)
     {
-        $emp_id = $id;
         $contact = emergency_call::find($id);
+        $find = $contact->emp_id;
         $contact->delete();
-        return redirect()->route('employee.employee_desc',[$emp_id])->with('delete', 'ลบข้อมูลสำเร็จ');
+        return redirect()->route('employee.employee_desc',[$find])->with('delete', 'ลบข้อมูลสำเร็จ');
     }
 
 
