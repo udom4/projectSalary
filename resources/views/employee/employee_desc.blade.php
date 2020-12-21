@@ -151,6 +151,14 @@
                                         <td class="budget">{{$emerg->e_nickname}}</td>
                                         <td class="budget">{{$emerg->e_phone}}</td>
                                         <td class="budget">{{$emerg->relation_name}}</td>
+                                        <td>
+                                            <a href=" {{ route('employee.edit_employee',$emerg->emp_id) }} " class="btn btn/sm btn/outline">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href=" {{ route('employee.destroy',$emerg->emp_id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
+                                                <i class="ni ni-fat-delete"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                     <tr>
