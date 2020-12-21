@@ -134,7 +134,7 @@
                                                 var tableRow = res.length;
                                                 $('#dynamic-row').html('');
                                                 for(var i=0; i<tableRow; i++){
-
+                                                    var id = res[i].id;
                                                     var emp_id = res[i].emp_id;
                                                     var name = res[i].emp_name;
                                                     var surname = res[i].emp_surname;
@@ -160,7 +160,8 @@
                                                     var other = res[i].other;
 
                                                     var tr_str = "<tr>"+
-                                                        "<th scope='row'>"+"<a href=''>"+ emp_id +"</a></th>"+
+                                                        "<th scope='row'>"+"<a href='/employee/employeeDesc"+id+"'>"+ emp_id +"</a></th>"+
+                                                        "<th>"+"<a href='/position"+team_id+"'>"+name+"</a></th>"+
                                                         "<td class='budget'>"+ name +"&nbsp"+ surname +"</td>"+
                                                         "<td class='budget'>"+ en_name +"&nbsp"+ en_surname +"</td>"+
                                                         "<td class='budget'>"+ nickname +"</td>"+
