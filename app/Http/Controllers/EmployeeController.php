@@ -241,6 +241,7 @@ class employeeController extends Controller
 
     }
     public function desc($id){
+        $emp_id = $id;
         $emp = DB::table('employee')
             ->join('department','employee.dept_id','=','department.id')
             ->join('team','employee.team_id','=','team.id')
@@ -249,7 +250,7 @@ class employeeController extends Controller
             ->join('type_employee','type_employee.id','employee.type_emp_id')
             ->select('*')
             ->where('employee.id',$id)
-            ->first($id);
+            ->first();
 
             $emergency = DB::table('emergency_call')
                 ->join('employee','emergency_call.emp_id','=','employee.id')
@@ -259,7 +260,7 @@ class employeeController extends Controller
                 ->get();
 
 
-        return view('employee.employee_desc',compact('emp','emergency'));
+        return view('employee.employee_desc',compact('emp','emergency','emp_id'));
 
     }
 

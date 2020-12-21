@@ -101,7 +101,7 @@
                                     </tr>
                                     <td></td>
                                     <td>
-                                            <a href=" {{ route('employee.edit_employee',$emp->id) }} ">
+                                            <a href=" {{ route('employee.edit_employee',$emp_id) }} ">
                                                 <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
                                                     <div>
                                                         <i class="fa fa-edit"></i>
