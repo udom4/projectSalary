@@ -146,6 +146,9 @@
                                 </table>
                             </div>
                     </div>
+                    <div class="col text-left">
+                        <a href=" {{ url()->previous() }} " class="btn btn-success"> ย้อนกลับ </a>
+                    </div>
                 </div>
             </div>
         </div>

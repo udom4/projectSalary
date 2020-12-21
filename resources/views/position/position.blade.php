@@ -94,9 +94,7 @@
                                                 {{ csrf_field() }}
                                                 <tr>
                                                     <th scope="row">
-                                                        <a href="">
                                                             {{$row->pos_name}}
-                                                        </a>
                                                     </th>
                                                     <td>
                                                         <a href=" {{ route('position.edit_position',$row->id) }} " class="btn btn/sm btn/outline">
@@ -143,6 +141,9 @@
                                     </script>
                                 </table>
                             </div>
+                    </div>
+                    <div class="col text-left">
+                        <a href=" {{ url()->previous() }} " class="btn btn-success"> ย้อนกลับ </a>
                     </div>
                 </div>
             </div>
