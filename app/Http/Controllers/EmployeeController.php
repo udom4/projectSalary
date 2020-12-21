@@ -196,7 +196,7 @@ class employeeController extends Controller
     {
         $emp = employee::find($id);
         $emp->delete();
-        return redirect()->route('employee')->with('delete', 'ลบข้อมูลสำเร็จ');
+        return back()->with('delete', 'ลบข้อมูลสำเร็จ');
     }
 
     public function searchEmployee(Request $request)

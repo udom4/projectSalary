@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="col">
                                         {!! Form::label('de', 'Department'); !!}
-                                        {!! Form::select('dept_id', $dept,null,['class' => 'form-control','id' => 'sub_detp_name', 'placeholder' => 'Department Name']); !!}
+                                        {!! Form::select('dept_id', $dept,null,['class' => 'form-control','id' => 'sub_detp_name', 'placeholder' => 'Select Department Name']); !!}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -185,7 +185,7 @@
                                         <div class="form-group">
                                             {!! Form::label('ban_id', 'Bank'); !!}
                                             {!! Form::select('bank_id', $bank, 'null',
-                                            ['class' => 'form-control',]); !!}
+                                            ['class' => 'form-control','placeholder' => 'Select Bank Name']); !!}
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +239,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             {!! Form::label('type', 'Type Employee'); !!}
-                                            {!! Form::select('type_emp_id', $type_employee , null , ['class' => 'form-control']); !!}
+                                            {!! Form::select('type_emp_id', $type_employee , null , ['class' => 'form-control','placeholder' => 'Select Type Name']); !!}
                                         </div>
                                     </div>
                                     <div class="col">
