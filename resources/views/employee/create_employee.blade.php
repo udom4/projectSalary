@@ -152,7 +152,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            {!! Form::label('birthday', 'Birthday'); !!}
+                                            {!! Form::label('birthday', 'Birthday (Month/Day/Year)'); !!}
                                             {!! Form::text('emp_birthday', '', array('id' => 'datepicker2','class' => 'form-control'), ); !!}
                                         </div>
                                         <script>

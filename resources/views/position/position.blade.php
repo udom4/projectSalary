@@ -128,7 +128,7 @@
                                                         var pos_id = res[i].id;
                                                         var name = res[i].pos_name;
                                                         var tr_str = "<tr>"+
-                                                                "<th>"+"<a href='/position"+pos_id+"'>"+name+"</a></th>"+
+                                                                "<th>"+name+"</th>"+
                                                                 "<td>"+"<a href='/edit_position"+pos_id+"' class='btn btn/sm btn/outline'>"+"<i class='fa fa-edit'></i></a>"+
                                                                 "<a href='/deletePosition"+pos_id+"' class='btn btn/sm btn/outline'>"+"<i class='ni ni-fat-delete'></i></a></td>"
                                                                 +"</tr>"
