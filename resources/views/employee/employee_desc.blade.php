@@ -99,6 +99,31 @@
                                         <td><h3> เงินเดือน </h3> {{$emp->salary}} </td>
                                         <td><h3>อื่นๆ </h3> {{$emp->other}} </td>
                                     </tr>
+                                    <td></td>
+                                    <td>
+                                            <a href=" {{ route('employee.edit_employee',$emp->id) }} ">
+                                                <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
+                                                    <div>
+                                                        <i class="fa fa-edit"></i>
+                                                        <span>แก้ไขข้อมูล</span>
+                                                    </div>
+                                                </button>
+                                            </a>
+                                                    <!--<i class="fa fa-edit" href=" {{ route('employee.edit_employee',$emp->id) }} " class="btn btn/sm btn/outline"></i>-->
+                                        </td>
+                                        <td>
+                                            <a href=" {{ route('employee.destroy',$emp->id) }} " onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
+                                                <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
+                                                    <div>
+                                                        <i class="ni ni-fat-delete"></i>
+                                                        <span>ลบข้อมูล</span>
+                                                    </div>
+                                                </button>
+                                            </a>
+                                            <!--<a href=" {{ route('employee.destroy',$emp->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
+                                                <i class="ni ni-fat-delete"></i>
+                                            </a>-->
+                                        </td>
                             </table>
                             <table class="table align-items-center table-flush">
                                     <h3>ผู้ติดต่อฉุกเฉิน</h3>
@@ -127,30 +152,6 @@
                                                     </div>
                                                 </button>
                                             </a></td>
-                                        <td>
-                                            <a href=" {{ route('employee.edit_employee',$emp->id) }} ">
-                                                <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
-                                                    <div>
-                                                        <i class="fa fa-edit"></i>
-                                                        <span>แก้ไขข้อมูล</span>
-                                                    </div>
-                                                </button>
-                                            </a>
-                                                    <!--<i class="fa fa-edit" href=" {{ route('employee.edit_employee',$emp->id) }} " class="btn btn/sm btn/outline"></i>-->
-                                        </td>
-                                        <td>
-                                            <a href=" {{ route('employee.destroy',$emp->id) }} " onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
-                                                <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
-                                                    <div>
-                                                        <i class="ni ni-fat-delete"></i>
-                                                        <span>ลบข้อมูล</span>
-                                                    </div>
-                                                </button>
-                                            </a>
-                                            <!--<a href=" {{ route('employee.destroy',$emp->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
-                                                <i class="ni ni-fat-delete"></i>
-                                            </a>-->
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
