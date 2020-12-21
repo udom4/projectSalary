@@ -189,7 +189,7 @@ class employeeController extends Controller
         $emp->update($request->all());
 
         $emp->save();
-        return redirect()->route('employee')->with('update', 'ข้อมูลสำเร็จ');
+        return back()->with('update', 'ข้อมูลสำเร็จ');
     }
 
     public function destroy($id)
