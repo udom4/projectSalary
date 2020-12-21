@@ -248,7 +248,7 @@
                         <div class="row mt-2">
                             <div class="col">
                                 {!! Form::submit('บันทึก', ['class' => 'btn btn-primary']) !!}
-                                <a href=" redirect()->back(); " class="btn btn-success"> ย้อนกลับ </a>
+                                <a href="#" onclick="history.go(-1)" class="btn btn-success"> ย้อนกลับ </a>
                             </div>
                         </div>
                         {!! Form::close() !!}
