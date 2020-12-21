@@ -112,7 +112,7 @@
                                                     <!--<i class="fa fa-edit" href=" {{ route('employee.edit_employee',$emp->id) }} " class="btn btn/sm btn/outline"></i>-->
                                         </td>
                                         <td>
-                                            <a href=" {{ route('employee.destroy',$emp->id) }} " onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
+                                            <a href=" {{ route('employee.destroy',$emp_id) }} " onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
                                                 <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
                                                     <div>
                                                         <i class="ni ni-fat-delete"></i>
