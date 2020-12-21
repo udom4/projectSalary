@@ -144,6 +144,10 @@ Route::get('contact/edit_contact{id}', 'App\Http\Controllers\employeeController@
 Route::post('/contact/update{id}', 'App\Http\Controllers\employeeController@update_contact' ,function () {
     return view('welcome');
 })->name('contact.update');
+Route::get('/deleteContact{id}', 'App\Http\Controllers\employeeController@destroy_contact' ,function () {
+    return view('employee_desc');
+})->name('contact.destroy');
+
 
 
 Route::get('/log_action/{id}/{table}','LogController@index');

@@ -156,14 +156,14 @@
                                             {!! Form::hidden('emp_id', $emerg->emp_id , ['class' => 'form-control']);!!}
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href=" {{ route('employee.destroy',$emerg->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
+                                            <a href=" {{ route('contact.destroy',$emerg->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">
                                                 <i class="ni ni-fat-delete"></i>
                                             </a>
                                         </td>
                                     </tr>
                                     @endforeach
                                     <tr>
-                                        
+
                                     </tr>
                                 </tbody>
                             </table>

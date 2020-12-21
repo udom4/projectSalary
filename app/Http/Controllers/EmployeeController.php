@@ -372,4 +372,14 @@ class employeeController extends Controller
         $contact->save();
         return redirect()->route('employee.employee_desc',[$emp_id])->with('update', 'ข้อมูลสำเร็จ');
     }
+
+    public function destroy_contact($id)
+    {
+        $emp_id = $id;
+        $contact = emergency_call::find($id);
+        $contact->delete();
+        return redirect()->route('employee.employee_desc',[$emp_id])->with('delete', 'ลบข้อมูลสำเร็จ');
+    }
+
+
 }
