@@ -127,7 +127,18 @@
                             </table>
                             <table class="table align-items-center table-flush">
                                     <h3>ผู้ติดต่อฉุกเฉิน</h3>
-
+                                    <tr>
+                                        <td>
+                                            <a href=" {{ route('contact.create',$emp->id) }} ">
+                                                <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
+                                                    <div>
+                                                        <i class="fa fa-plus"></i>
+                                                        <span>เพิ่มผู้ติดต่อฉุกเฉิน</span>
+                                                    </div>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td><h3>ชื่อ-นามสกุล</h3></td>
                                         <td><h3>ชื่อเล่น</h3></td>
@@ -143,15 +154,7 @@
                                     </tr>
                                     @endforeach
                                     <tr>
-                                        <td>
-                                            <a href=" {{ route('employee.edit_employee',$emp->id) }} ">
-                                                <button type="button" class="btn-icon-clipboard" data-clipboard-text="collection" title="">
-                                                    <div>
-                                                        <i class="fa fa-plus"></i>
-                                                        <span>เพิ่มผู้ติดต่อฉุกเฉิน</span>
-                                                    </div>
-                                                </button>
-                                            </a></td>
+                                        
                                     </tr>
                                 </tbody>
                             </table>

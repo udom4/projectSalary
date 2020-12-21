@@ -262,14 +262,61 @@ class employeeController extends Controller
 
     }
 
-    public function create_contact() {
+    public function create_contact($emp_id) {
 
 
         $relation = relation::all()->pluck('relation_name', 'id');
 
+        $emp = employee::find($emp_id);
 
+        return view('contact.create_contact',compact('relation','emp'));
+    }
 
-        return view('contact.create_contact',compact('relation'));
+    public function store_contact(Request $request)
+    {
+
+        $id = $request->emp_id;
+        // validate data
+        //  $rules = [
+        //     'emp_id' => 'required',
+        //     'emp_name' => 'required',
+        //     'emp_surname' => 'required',
+        //     'emp_en_name' => 'required',
+        //     'emp_en_surname' => 'required',
+        //     'emp_nickname' => 'required',
+        //     'emp_start_work' => 'required',
+        //     'emp_start_emp' => 'required',
+        //     'emp_name' => 'required',
+        //     'dept_id' => 'required',
+        //     'team_id' => 'required',
+        //     'pos_id' => 'required',
+        //     'emp_birthday' => 'required',
+        //     'emp_numberID' => 'required',
+        //     'bank_numberID' => 'required',
+        //     'bank_id' => 'required',
+        //     'emp_phone' => 'required',
+        //     'address' => 'required',
+        //     'current_address' => 'required',
+        //     'emp_e_mail' => 'required',
+        //     'type_emp_id' => 'required',
+        //     'salary' => 'required',
+        // ];
+
+        // $request->validate($rules);
+        // $start = date("Y-m-d",strtotime($request->emp_start_work));
+        // $start_emp = date("Y-m-d",strtotime($request->emp_start_emp));
+        // $birthday = date("Y-m-d",strtotime($request->emp_birthday));
+
+        $contact = new emergency_call;
+        $contact->emp_id = $request->emp_id;
+        $contact->e_name = $request->e_name;
+        $contact->e_surname = $request->e_surname;
+        $contact->e_nickname = $request->e_nickname;
+        $contact->e_phone = $request->e_phone;
+        $contact->relation_id = $request->relation_id;
+        $contact->save();
+
+        return redirect()->route('employee.employee_desc',[$id])->with('status', 'บันทึกข้อมูลสำเร็จ');
     }
 
 }

@@ -131,6 +131,13 @@ Route::get('GetSubDept/{id}','App\Http\Controllers\employeeController@GetSubDept
 Route::get('GetSubTeam/{id}','App\Http\Controllers\employeeController@GetSubTeam');
 Route::post('/employee/search',['as' => 'search-emp' , 'uses' => 'App\Http\Controllers\employeeController@searchEmployee']);
 
+//contact
+Route::get('/create_contact{id}', 'App\Http\Controllers\employeeController@create_contact' ,function () {
+    return view('contact.create_contact');
+})->name('contact.create');
+Route::post('/contact/store', 'App\Http\Controllers\employeeController@store_contact' ,function () {
+    return view('welcome');
+})->name('contact.store');
 
 
 
