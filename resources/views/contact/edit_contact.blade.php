@@ -87,7 +87,7 @@
                                 <div class="row mt-2">
                                     <div class="col">
                                         {!! Form::submit('บันทึก', ['class' => 'btn btn-primary']) !!}
-                                        <a href=" {{ route('employee.employee_desc',$contact->id) }} " class="btn btn-success"> ย้อนกลับ </a>
+                                        <a href=" {{ route('employee.employee_desc',$contact->emp_id) }} " class="btn btn-success"> ย้อนกลับ </a>
                                     </div>
                                 </div>
                             {!! Form::close() !!}
