@@ -8,6 +8,7 @@ use App\department;
 use App\position;
 use App\team;
 use App\type_employee;
+use App\emergency_call;
 
 
 use Illuminate\Http\Request;
@@ -258,6 +259,23 @@ class employeeController extends Controller
 
         return view('employee.employee_desc',compact('emp','emergency'));
 
+    }
+
+    public function create_contact() {
+
+
+        $bank = bank::all()->pluck('bank_name', 'id');
+
+        $dept = department::all()->pluck('dept_name', 'id');
+
+        $team = ['' => 'Please Select Department'] ;
+
+        $pos = ['' => 'Please Select Team'] ;
+
+
+        $type_employee = type_employee::all()->pluck('type_name', 'id');
+
+        return view('employee.create_employee',compact('team','dept', 'bank', 'type_employee','pos'));
     }
 
 }
