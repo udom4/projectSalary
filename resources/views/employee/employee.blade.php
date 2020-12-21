@@ -161,7 +161,6 @@
 
                                                     var tr_str = "<tr>"+
                                                         "<th scope='row'>"+"<a href='/employee/employeeDesc"+id+"'>"+ emp_id +"</a></th>"+
-                                                        "<th>"+"<a href='/position"+team_id+"'>"+name+"</a></th>"+
                                                         "<td class='budget'>"+ name +"&nbsp"+ surname +"</td>"+
                                                         "<td class='budget'>"+ en_name +"&nbsp"+ en_surname +"</td>"+
                                                         "<td class='budget'>"+ nickname +"</td>"+
