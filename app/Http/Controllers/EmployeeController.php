@@ -320,17 +320,22 @@ class employeeController extends Controller
         return redirect()->route('employee.employee_desc',[$id])->with('status', 'บันทึกข้อมูลสำเร็จ');
     }
 
-    public function edit_contact($id){
+    public function edit_contact(Request $request, $id){
+        $emp_id = $request->emp_id;
+
+        $emp = employee::find($emp_id);
+
         $contact = emergency_call::find($id);
 
         $relation = relation::all()->pluck('relation_name', 'id');
 
         // return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee , 'bankID' => $bankID]);
-        return view('contact.edit_contact',compact('contact', 'relation'));
+        return view('contact.edit_contact',compact('contact', 'relation', 'emp_id', 'emp'));
     }
 
 
     public function update_contact(Request $request, $id){
+        $emp_id = $request->emp;
         // validate data
         // $rules = [
         //     'emp_id' => 'required',
@@ -364,6 +369,6 @@ class employeeController extends Controller
         $contact->update($request->all());
 
         $contact->save();
-        return redirect()->route('employee.employee_desc',[$id])->with('update', 'ข้อมูลสำเร็จ');
+        return redirect()->route('employee.employee_desc',[$emp_id])->with('update', 'ข้อมูลสำเร็จ');
     }
 }

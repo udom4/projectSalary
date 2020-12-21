@@ -152,7 +152,8 @@
                                         <td class="budget">{{$emerg->e_phone}}</td>
                                         <td class="budget">{{$emerg->relation_name}}</td>
                                         <td>
-                                            <a href=" {{ route('contact.edit_contact',$emerg->id) }} " class="btn btn/sm btn/outline">
+                                            <a href=" {{ route('contact.edit_contact',$emerg->id ) }} " class="btn btn/sm btn/outline">
+                                            {!! Form::hidden('emp_id', $emerg->emp_id , ['class' => 'form-control']);!!}
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a href=" {{ route('employee.destroy',$emerg->id) }} " class="btn btn/sm btn/outline" onclick="return confirm('คุณต้องการลบพนักงานที่เลือกใช่ไหม?')">

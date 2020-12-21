@@ -33,6 +33,7 @@
                                     <td>
                                         <div class="col">
                                             <div class="form-group">
+                                                {!! Form::hidden('emp', $contact->emp_id , ['class' => 'form-control']);!!}
                                                 {!! Form::label('name', 'name(Thai)'); !!}
                                                 {!! Form::text('e_name', null,
                                                     ['class' => 'form-control',($errors->has('e_name') ? 'is-invalid' : '') ,]); !!}
