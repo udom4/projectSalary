@@ -132,7 +132,7 @@
                                                         var team_id = res[i].id;
                                                         var name = res[i].team_name;
                                                         var tr_str = "<tr>"+
-                                                                "<th>"+"<a href='/team"+team_id+"'>"+name+"</a></th>"+
+                                                                "<th>"+"<a href='/position"+team_id+"'>"+name+"</a></th>"+
                                                                 "<td>"+"<a href='/edit_team"+team_id+"' class='btn btn/sm btn/outline'>"+"<i class='fa fa-edit'></i></a>"+
                                                                 "<a href='/deleteTeam"+team_id+"' class='btn btn/sm btn/outline'>"+"<i class='ni ni-fat-delete'></i></a></td>"
                                                                 +"</tr>"
