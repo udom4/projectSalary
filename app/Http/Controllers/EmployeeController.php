@@ -254,6 +254,7 @@ class employeeController extends Controller
             $emergency = DB::table('emergency_call')
                 ->join('employee','emergency_call.emp_id','=','employee.id')
                 ->join('relation','emergency_call.relation_id','=','relation.id')
+                ->select('emergency_call.id', 'emergency_call.emp_id', 'emergency_call.e_name', 'emergency_call.e_surname', 'emergency_call.e_nickname', 'emergency_call.e_phone', 'emergency_call.relation_id', 'relation.relation_name')
                 ->where ('employee.id','=', $id)
                 ->get();
 
@@ -319,4 +320,50 @@ class employeeController extends Controller
         return redirect()->route('employee.employee_desc',[$id])->with('status', 'บันทึกข้อมูลสำเร็จ');
     }
 
+    public function edit_contact($id){
+        $contact = emergency_call::find($id);
+
+        $relation = relation::all()->pluck('relation_name', 'id');
+
+        // return view('employee.edit_employee',['emp' => $emp , 'dept' => $dept, 'team' => $team, 'pos' => $pos, 'bank' => $bank, 'type_employee' => $type_employee , 'bankID' => $bankID]);
+        return view('contact.edit_contact',compact('contact', 'relation'));
+    }
+
+
+    public function update_contact(Request $request, $id){
+        // validate data
+        // $rules = [
+        //     'emp_id' => 'required',
+        //     'emp_name' => 'required',
+        //     'emp_surname' => 'required',
+        //     'emp_en_name' => 'required',
+        //     'emp_en_surname' => 'required',
+        //     'emp_nickname' => 'required',
+        //     'emp_start_work' => 'required',
+        //     'emp_start_emp' => 'required',
+        //     'emp_name' => 'required',
+        //     'dept_id' => 'required',
+        //     'team_id' => 'required',
+        //     'pos_id' => 'required',
+        //     'emp_birthday' => 'required',
+        //     'emp_numberID' => 'required',
+        //     'bank_numberID' => 'required',
+        //     'bank_id' => 'required',
+        //     'emp_phone' => 'required',
+        //     'address' => 'required',
+        //     'current_address' => 'required',
+        //     'emp_e_mail' => 'required',
+        //     'comp_e_mail' => 'required',
+        //     'type_emp_id' => 'required',
+        //     'salary' => 'required',
+        // ];
+
+        // $request->validate($rules);
+
+        $contact = emergency_call::find($id);
+        $contact->update($request->all());
+
+        $contact->save();
+        return redirect()->route('employee.employee_desc',[$id])->with('update', 'ข้อมูลสำเร็จ');
+    }
 }

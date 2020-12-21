@@ -138,7 +138,12 @@ Route::get('/create_contact{id}', 'App\Http\Controllers\employeeController@creat
 Route::post('/contact/store', 'App\Http\Controllers\employeeController@store_contact' ,function () {
     return view('welcome');
 })->name('contact.store');
-
+Route::get('contact/edit_contact{id}', 'App\Http\Controllers\employeeController@edit_contact' ,function () {
+    return view('employee.edit_employee');
+})->name('contact.edit_contact');
+Route::post('/contact/update{id}', 'App\Http\Controllers\employeeController@update_contact' ,function () {
+    return view('welcome');
+})->name('contact.update');
 
 
 Route::get('/log_action/{id}/{table}','LogController@index');
