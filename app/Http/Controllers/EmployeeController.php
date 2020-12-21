@@ -189,14 +189,14 @@ class employeeController extends Controller
         $emp->update($request->all());
 
         $emp->save();
-        return back()->with('update', 'ข้อมูลสำเร็จ');
+        return redirect()->route('employee')->with('update', 'ข้อมูลสำเร็จ');
     }
 
     public function destroy($id)
     {
         $emp = employee::find($id);
         $emp->delete();
-        return back()->with('delete', 'ลบข้อมูลสำเร็จ');
+        return redirect()->route('employee')->with('delete', 'ลบข้อมูลสำเร็จ');
     }
 
     public function searchEmployee(Request $request)
