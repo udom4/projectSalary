@@ -153,3 +153,7 @@ Route::get('/deleteContact{id}', 'App\Http\Controllers\employeeController@destro
 Route::get('/log_action/{id}/{table}','LogController@index');
 Route::get('/delete_worker/{id}','WorkerController@destroy');
 Route::get('contact', 'WebController@contact');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
